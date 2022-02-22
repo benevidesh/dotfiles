@@ -1,0 +1,24 @@
+# ----------------------------------------------------------------------- #
+# -                          GENERAL SETTINGS                           - #
+# ----------------------------------------------------------------------- #
+
+
+set dbus-service true
+set synctex true
+
+set guioptions n
+set adjust-open "width"
+
+# ----------------------------------------------------------------------- #
+# -                             APPEARENCE                              - #
+# ----------------------------------------------------------------------- #
+
+
+set default-bg "#2E2E2E"
+
+
+# -- when recoloring black turns to
+set recolor-darkcolor "#A5A5A5"
+
+# -- when recoloring white turns to
+set recolor-lightcolor "#2E2E2E"  
