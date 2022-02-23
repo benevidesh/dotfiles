@@ -2,8 +2,10 @@
 " PLUG {{{
 call plug#begin('~/.config/nvim/plugged')
 
-    Plug 'cocopon/iceberg.vim'
+"    Plug 'cocopon/iceberg.vim'
     Plug 'lifepillar/vim-solarized8'
+
+
     Plug 'sirver/UltiSnips'
     Plug 'honza/vim-snippets'
 
