@@ -80,6 +80,7 @@ set splitbelow
 let g:markdown_fenced_languages=['tex', 'sh']
 
 autocmd! BufRead,BufNewFile *.md set filetype=pandoc
+autocmd! BufRead,BufNewFile *.tex set conceallevel=2
 
 let g:tex_flavor='latex'
 " }}}
@@ -91,6 +92,7 @@ let mapleader=" "
 
 nnoremap : <nop>
 nnoremap <leader><leader> :
+inoremap lkj <esc>
 vnoremap <leader><leader> :
 
 " uses <Tab> for trigger completion

@@ -3,8 +3,13 @@ benevidesh's dotfiles
 
 Uses GNU Stow – https://www.gnu.org/software/stow/
 
-Usage: 
+Usage 1: 
 cd ~
 git clone https://github.com/benevidesh/dotfiles.git
-cd dotfiles
-stow nvim (tmux || zathura || etc.)
+stow dotfiles
+
+Usage 2 (more fine-grained):
+cd ~
+git clone https://github.com/benevidesh/dotfiles.git
+cd dotfiles/.config/
+stow -t $HOME/.config/nvim nvim (zathura, tmux, etc.) /* make sure the destination folder already exists */
