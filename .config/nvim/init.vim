@@ -4,7 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'cocopon/iceberg.vim'
     Plug 'lifepillar/vim-solarized8'
-    Plug 'overcache/NeoSolarized'
+    Plug 'axvr/raider.vim'
 
     Plug 'sirver/UltiSnips'
     Plug 'honza/vim-snippets'
@@ -207,9 +207,5 @@ colorscheme solarized8
 
 
 "}}}
-
-"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 
 " vim:foldmethod=marker:foldlevel=0
