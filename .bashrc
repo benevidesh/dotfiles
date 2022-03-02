@@ -120,7 +120,6 @@ fi
 
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
-set -o vi
 
 fd() {
   local dir
@@ -132,3 +131,14 @@ fd() {
 
 export BAT_THEME="base16"
 export EDITOR=vim
+export FZF_DEFAULT_OPTS="--tac --multi --preview-window=wrap"
+
+
+fo() {
+  IFS=$'\n' out=("$(fzf --query="$1" --exit-0 --expect=enter,ctrl-o,ctrl-e)")
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = enter ] && xdg-open "$file" || >/dev/null 2>&1
+  fi
+}

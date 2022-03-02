@@ -6,8 +6,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lifepillar/vim-solarized8'
     Plug 'axvr/raider.vim'
 
+    Plug 'junegunn/goyo.vim'
+
     Plug 'sirver/UltiSnips'
     Plug 'honza/vim-snippets'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
     Plug 'lervag/vimtex'
     Plug 'lifepillar/vim-outlaw'
@@ -75,10 +78,11 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 "set fillchars+=foldsep:\ 
 set splitbelow
+set splitright
 
 " markdown
 let g:markdown_fenced_languages=['tex', 'sh']
-
+let g:pandoc#syntax#conceal#urls=1
 autocmd! BufRead,BufNewFile *.md set filetype=pandoc
 autocmd! BufRead,BufNewFile *.tex set conceallevel=2
 
@@ -92,7 +96,6 @@ let mapleader=" "
 
 nnoremap : <nop>
 nnoremap <leader><leader> :
-inoremap lkj <esc>
 vnoremap <leader><leader> :
 
 " uses <Tab> for trigger completion
@@ -161,6 +164,10 @@ nnoremap <silent><C-k> <C-w>W
 
 " windows commands
 nnoremap <silent><leader>w <C-w>
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
 nnoremap <silent><F4> :call SVED_Sync()<CR>
 
@@ -194,11 +201,14 @@ set statusline+=\
 " COLORS {{{
 
 " changing colorscheme depending on time of day
-"if (strftime('%H')) >= 6 && (strftime('%H')) <= 16
-"        colorscheme yang
-"else
+if (strftime('%H')) >= 6 && (strftime('%H')) <= 16
+       set background=light
+else
+       set background=dark
+endif
 let g:solarized_termtrans=1
 colorscheme solarized8
+hi VertSplit guibg=none
 "hi Normal guibg=none
 "hi FoldColumn guibg=none
 "hi Folded guibg=none
@@ -210,6 +220,11 @@ colorscheme solarized8
 " NETRW {{{
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+" hide .dir
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+" preview files in vertical split
+let g:netrw_preview   = 1
+let g:netrw_alto = 0
+let g:netrw_winsize   = 30
 "}}}
 " vim:foldmethod=marker:foldlevel=0
