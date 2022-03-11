@@ -2,18 +2,19 @@
 " PLUG {{{
 call plug#begin('~/.config/nvim/plugged')
 
-    Plug 'cocopon/iceberg.vim'
-    Plug 'lifepillar/vim-solarized8'
-    Plug 'axvr/raider.vim'
+Plug 'cocopon/iceberg.vim'
+
+
+Plug 'axvr/photon.vim'
+
 
     Plug 'junegunn/goyo.vim'
 
-    Plug 'sirver/UltiSnips'
+    Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
     Plug 'lervag/vimtex'
-    Plug 'lifepillar/vim-outlaw'
     Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
@@ -23,12 +24,6 @@ call plug#end()
 "let g:UltiSnipsExpandTrigger="<C-space>"
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-" }}}
-"  OUTLAW {{{
-let g:outlaw_fold_prefix = '' "◉ ➤ ✸ ☉  ✱ 
-let g:outlaw_strikethrough = 1
-let g:outlaw_strikethrough=1
 
 " }}}
 "  VIMTEX {{{
@@ -83,6 +78,8 @@ set splitright
 " markdown
 let g:markdown_fenced_languages=['tex', 'sh']
 let g:pandoc#syntax#conceal#urls=1
+
+autocmd! BufRead,BufNewFile *.md nnoremap <silent><leader>n :<c-u>e<space><c-r>=strftime("%Y%m%d%H%M%S")<cr>.md<enter>
 autocmd! BufRead,BufNewFile *.md set filetype=pandoc
 autocmd! BufRead,BufNewFile *.tex set conceallevel=2
 
@@ -134,7 +131,7 @@ nnoremap <leader>b :ls<cr>:b<space>
 nnoremap <leader>B :ls<cr>:vert<space>sb<space>
 
 " alternate
-nnoremap <silent><backspace> :b#<cr>
+nnoremap <silent><backspace> :bprevious<cr>
 
 nnoremap <silent> <F6> :set<space>spell!<cr>
 
@@ -201,16 +198,20 @@ set statusline+=\
 " COLORS {{{
 
 " changing colorscheme depending on time of day
-if (strftime('%H')) >= 6 && (strftime('%H')) <= 16
-       set background=light
-else
-       set background=dark
-endif
-let g:solarized_termtrans=1
-colorscheme solarized8
+"if (strftime('%H')) >= 6 && (strftime('%H')) <= 16
+"       set background=light
+"       colo antiphoton
+"else
+"       set background=dark
+"       colo photon
+"endif
+"let g:solarized_termtrans=1
+"colorscheme solarized8
+colorscheme iceberg
 hi VertSplit guibg=none
-"hi Normal guibg=none
-"hi FoldColumn guibg=none
+hi Normal guibg=none
+hi FoldColumn guibg=none
+"hi NonText guibg=none
 "hi Folded guibg=none
 "hi Conceal guibg=none
 "endif
@@ -227,4 +228,7 @@ let g:netrw_preview   = 1
 let g:netrw_alto = 0
 let g:netrw_winsize   = 30
 "}}}
+"set grepprg=grep
+"set grepformat=%f:%m
+"
 " vim:foldmethod=marker:foldlevel=0

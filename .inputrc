@@ -2,10 +2,14 @@ $include /etc/inputrc
 
 
 set editing-mode vi
+set keymap vi-insert
 
-# Case-insensitive tab completion
+
 set completion-ignore-case on
 set show-all-if-ambiguous on
 set menu-complete-display-prefix on
-set keymap vi-insert
+
 TAB:menu-complete
+
+# color on completion
+set colored-stats on
