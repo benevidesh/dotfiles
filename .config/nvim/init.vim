@@ -78,6 +78,7 @@ let g:pandoc#syntax#conceal#urls=1
 autocmd! BufRead,BufNewFile *.md set filetype=pandoc
 autocmd! BufRead,BufNewFile *.tex set conceallevel=2
 autocmd! BufRead,BufNewFile *.md nnoremap <silent><leader>zn :<c-u>e<space><c-r>=strftime("%Y%m%d%H%M%S")<cr>.md<enter>:echo<space>"Note created"<cr>
+autocmd! BufRead,BufNewFile *todo.txt set nowrap
 
 let g:tex_flavor='latex'
 " }}}
