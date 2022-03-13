@@ -131,8 +131,8 @@ fd() {
 
 export BAT_THEME="base16"
 export EDITOR=vim
-export FZF_DEFAULT_OPTS="--tac --multi --preview-window=wrap"
-PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname) $(pwd|cut -d "/" -f 4-100)\a"'
+export FZF_DEFAULT_OPTS="--reverse --multi --preview-window=wrap"
+
 
 fo() {
   IFS=$'\n' out=("$(fzf --query="$1" --exit-0 --expect=enter,ctrl-o,ctrl-e)")

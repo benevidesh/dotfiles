@@ -8,7 +8,7 @@ alias update='
     sudo apt-get upgrade &&
     sudo apt-get dist-upgrade
 '
-
+alias p='pomodoro'
 #######################################################################
 #                            git commands                             #
 #######################################################################

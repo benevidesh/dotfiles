@@ -2,19 +2,15 @@
 " PLUG {{{
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'cocopon/iceberg.vim'
-
-
-Plug 'axvr/photon.vim'
-
+    Plug 'cocopon/iceberg.vim'
 
     Plug 'junegunn/goyo.vim'
-
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
     Plug 'lervag/vimtex'
+    Plug 'freitass/todo.txt-vim'
     Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
@@ -79,9 +75,9 @@ set splitright
 let g:markdown_fenced_languages=['tex', 'sh']
 let g:pandoc#syntax#conceal#urls=1
 
-autocmd! BufRead,BufNewFile *.md nnoremap <silent><leader>n :<c-u>e<space><c-r>=strftime("%Y%m%d%H%M%S")<cr>.md<enter>
 autocmd! BufRead,BufNewFile *.md set filetype=pandoc
 autocmd! BufRead,BufNewFile *.tex set conceallevel=2
+autocmd! BufRead,BufNewFile *.md nnoremap <silent><leader>zn :<c-u>e<space><c-r>=strftime("%Y%m%d%H%M%S")<cr>.md<enter>:echo<space>"Note created"<cr>
 
 let g:tex_flavor='latex'
 " }}}
@@ -166,7 +162,7 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
-nnoremap <silent><F4> :call SVED_Sync()<CR>
+nnoremap <silent><F12> :Goyo<cr>
 
 "}}}
 " STATUSLINE {{{
@@ -228,7 +224,5 @@ let g:netrw_preview   = 1
 let g:netrw_alto = 0
 let g:netrw_winsize   = 30
 "}}}
-"set grepprg=grep
-"set grepformat=%f:%m
-"
+
 " vim:foldmethod=marker:foldlevel=0
