@@ -142,3 +142,17 @@ fo() {
     [ "$key" = enter ] && xdg-open "$file" || >/dev/null 2>&1
   fi
 }
+
+n() {
+    $EDITOR ~/"$*".txt 
+}
+
+
+ps() {
+    pomodoro start "$*" --wait && mpv ~/.pomodoro/bell.ogg 
+}
+
+
+pb() {
+    pomodoro break --wait && mpv ~/.pomodoro/loud-bell.ogg
+}

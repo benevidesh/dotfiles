@@ -2,17 +2,16 @@
 " PLUG {{{
 call plug#begin('~/.config/nvim/plugged')
 
-    Plug 'cocopon/iceberg.vim'
-
+    Plug 'cormacrelf/vim-colors-github'
+    Plug 'pgdouyon/vim-yin-yang'
     Plug 'junegunn/goyo.vim'
+
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
     Plug 'lervag/vimtex'
     Plug 'freitass/todo.txt-vim'
     Plug 'vim-pandoc/vim-pandoc-syntax'
-
 call plug#end()
 " }}}
 "  ULTISNIPS {{{
@@ -67,7 +66,7 @@ set spelllang=en_us,pt_br       " languages in which I write
 set thesaurus+=/home/benevides/resources/vim/mthesaur.txt
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
-"set fillchars+=foldsep:\ 
+set fillchars+=foldsep:\ 
 set splitbelow
 set splitright
 
@@ -75,10 +74,10 @@ set splitright
 let g:markdown_fenced_languages=['tex', 'sh']
 let g:pandoc#syntax#conceal#urls=1
 
-autocmd! BufRead,BufNewFile *.md set filetype=pandoc
+autocmd! BufRead,BufNewFile *todo.txt set nowrap
 autocmd! BufRead,BufNewFile *.tex set conceallevel=2
 autocmd! BufRead,BufNewFile *.md nnoremap <silent><leader>zn :<c-u>e<space><c-r>=strftime("%Y%m%d%H%M%S")<cr>.md<enter>:echo<space>"Note created"<cr>
-autocmd! BufRead,BufNewFile *todo.txt set nowrap
+autocmd! BufRead,BufNewFile *.md set filetype=pandoc
 
 let g:tex_flavor='latex'
 " }}}
@@ -194,24 +193,15 @@ set statusline+=\
 " }}}
 " COLORS {{{
 
-" changing colorscheme depending on time of day
-"if (strftime('%H')) >= 6 && (strftime('%H')) <= 16
-"       set background=light
-"       colo antiphoton
-"else
-"       set background=dark
-"       colo photon
-"endif
-"let g:solarized_termtrans=1
-"colorscheme solarized8
-colorscheme iceberg
+set background=light
+colorscheme github
 hi VertSplit guibg=none
 hi Normal guibg=none
 hi FoldColumn guibg=none
-"hi NonText guibg=none
-"hi Folded guibg=none
-"hi Conceal guibg=none
-"endif
+hi Conceal guibg=none
+hi Folded guibg=none
+hi NonText guibg=none
+hi EndOfBuffer guibg=none
 
 
 "}}}

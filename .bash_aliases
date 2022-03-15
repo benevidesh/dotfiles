@@ -22,3 +22,9 @@ alias go='git checkout '
 alias gm='git merge '
 alias gpl='git pull'
 alias gl='git log'
+
+
+#######################################################################
+#                                MISC                                 #
+#######################################################################
+alias t="vim ~/Resources/todo/todo.txt"
