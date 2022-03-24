@@ -28,3 +28,4 @@ alias gl='git log'
 #                                MISC                                 #
 #######################################################################
 alias t="vim ~/Resources/todo/todo.txt"
+alias ls="lsd --extensionsort"

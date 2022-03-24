@@ -2,18 +2,21 @@
 " PLUG {{{
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
     Plug 'cormacrelf/vim-colors-github'
-    Plug 'pgdouyon/vim-yin-yang'
-    Plug 'junegunn/goyo.vim'
 
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'folke/zen-mode.nvim'
+
     Plug 'lervag/vimtex'
     Plug 'freitass/todo.txt-vim'
     Plug 'vim-pandoc/vim-pandoc-syntax'
+
 call plug#end()
 " }}}
+
 "  ULTISNIPS {{{
 "let g:UltiSnipsExpandTrigger = "<c-j>"          " trigger completion for utilsnips
 "let g:UltiSnipsExpandTrigger="<C-space>"
@@ -31,14 +34,10 @@ let g:vimtex_view_method = 'zathura'            " zathura for use with synctex
 "let g:vimtex_view_general_viewer = 'evince'
 
 " }}}
-" GOYO {{{
-autocmd! User GoyoEnter nested :set foldcolumn=0
-autocmd! User GoyoLeave nested :source $MYVIMRC
-" }}}
 " SETTINGS {{{
 filetype plugin on		" enable default plugins for filetypes
-" set modelineexpr                " allow setting expression options from a modeline
-set hidden                      " don't unload a buffer when no longer shown in a window
+" set modelineexpr              " allow setting expression options from a modeline
+set hidden                    " don't unload a buffer when no longer shown in a window
 set autochdir			" auto change to dir containing the opened file
 set noswapfile			" self descriptive
 set noshowmode
@@ -74,7 +73,7 @@ set splitright
 let g:markdown_fenced_languages=['tex', 'sh']
 let g:pandoc#syntax#conceal#urls=1
 
-autocmd! BufRead,BufNewFile *todo.txt set nowrap
+autocmd! BufRead,BufNewFile *todo.txt set nowrap laststatus=0
 autocmd! BufRead,BufNewFile *.tex set conceallevel=2
 autocmd! BufRead,BufNewFile *.md nnoremap <silent><leader>zn :<c-u>e<space><c-r>=strftime("%Y%m%d%H%M%S")<cr>.md<enter>:echo<space>"Note created"<cr>
 autocmd! BufRead,BufNewFile *.md set filetype=pandoc
@@ -114,7 +113,6 @@ nnoremap <leader>sf :vert sfind *
 " Q to format lines 
 nnoremap Q gqip
 
-" annoyyying
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
@@ -162,8 +160,8 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
-nnoremap <silent><F12> :Goyo<cr>
-
+nnoremap <silent><F12> :ZenMode<cr>
+nnoremap <silent><M-m> :MarkdownPreview<cr>
 "}}}
 " STATUSLINE {{{
 function! GitBranch()
@@ -198,8 +196,8 @@ colorscheme github
 hi VertSplit guibg=none
 hi Normal guibg=none
 hi FoldColumn guibg=none
-hi Conceal guibg=none
-hi Folded guibg=none
+"hi Conceal guibg=none
+"hi Folded guibg=none
 hi NonText guibg=none
 hi EndOfBuffer guibg=none
 
@@ -214,6 +212,19 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_preview   = 1
 let g:netrw_alto = 0
 let g:netrw_winsize   = 30
+"}}}
+" ZEN {{{
+lua <<EOF
+  require("zen-mode").setup {
+      window = {
+         backdrop = 1,
+         width = 80, -- width of the Zen window
+         height = 0.85, -- hei
+         options = {
+             foldcolumn = "0", }
+         },
+     }
+EOF
 "}}}
 
 " vim:foldmethod=marker:foldlevel=0

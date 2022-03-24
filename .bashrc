@@ -57,7 +57,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\w\[\033[00m\]\n➜  "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -131,7 +132,7 @@ fd() {
 
 export BAT_THEME="base16"
 export EDITOR=vim
-export FZF_DEFAULT_OPTS="--reverse --multi --preview-window=wrap"
+export FZF_DEFAULT_OPTS="--color=light --reverse --multi --preview-window=wrap"
 
 
 fo() {
@@ -156,3 +157,15 @@ ps() {
 pb() {
     pomodoro break --wait && mpv ~/.pomodoro/loud-bell.ogg
 }
+. "$HOME/.cargo/env"
+source /home/benevidesh/Inbox/alacritty/extra/completions/alacritty.bash
+case ${TERM} in
+
+  xterm*|rxvt*|Eterm|aterm|kterm|gnome*|st-256color)
+     PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+
+    ;;
+  screen*)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+    ;;
+esac

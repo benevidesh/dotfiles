@@ -13,3 +13,8 @@ TAB:menu-complete
 
 # color on completion
 set colored-stats on
+
+set enable-keypad on
+
+# no delay after escape
+set keyseq-timeout 0
