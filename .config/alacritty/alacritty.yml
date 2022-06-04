@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 30
-    y: 20
+    x: 10
+    y: 15
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -61,13 +61,13 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  #decorations: none
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.98
+  opacity: 1.0
 
   # Startup Mode (changes require restart)
   #
@@ -114,13 +114,13 @@ font:
     # Font family
     #
     # Default:
-    family: SauceCodePro Nerd Font
+    #family: Inconsolata
     #family: Roboto Mono
-    #family: BlexMono NF
-    #family: SFMono Nerd Font
+    family: Liberation Mono
+    #family: SauceCodePro Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: medium
+    #style: medium
 
   # Bold font face
   #bold:
@@ -134,15 +134,15 @@ font:
     #style: Bold
 
   # Italic font face
-  italic:
+  #italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: SauceCodePro  Nerd Font
+    #family: SauceCodePro  Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Medium Italic
+    #style: Medium Italic
 
   # Bold italic font face
   #bold_italic:
@@ -156,21 +156,21 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 10.5
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
     x: 0
-    y: 8
+    y: 11
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
   glyph_offset:
     x: 0
-    y: 3
+    y: 6
 
   # Thin stroke font rendering (macOS only)
   #
@@ -459,7 +459,7 @@ cursor:
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
-  thickness: 0.12
+  thickness: 0.2
 
 # Live config reload (changes require restart)
 #live_config_reload: true

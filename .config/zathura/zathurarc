@@ -14,7 +14,7 @@ set adjust-open "width"
 # ----------------------------------------------------------------------- #
 
 
-set default-bg "#2E2E2E"
+set default-bg "#525659"
 
 
 # -- when recoloring black turns to
@@ -22,3 +22,5 @@ set recolor-darkcolor "#A5A5A5"
 
 # -- when recoloring white turns to
 set recolor-lightcolor "#2E2E2E"  
+
+set window-width 975

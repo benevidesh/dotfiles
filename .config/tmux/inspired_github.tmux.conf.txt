@@ -14,11 +14,11 @@ color_cyan="#489FC1"
 
 # modules
 module_left_1="#S"
-module_left_2="#(statuspmd)"
+#module_left_2="#(statuspmd)"
 
 
 module_right_1="%a %d %b"
-module_right_2="%R %Z"
+module_right_2="%R"
 
 set -g status-left " #[fg=#c6c8d1]$module_left_1 #[fg=#6b7089]$module_left_2"
 set -g status-left-style "fg=#ca1243"

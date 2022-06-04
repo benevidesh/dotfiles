@@ -1,5 +1,7 @@
 alias x='exit'
 alias c='clear'
+alias lf='ranger'
+alias vf='thunar . &'
 
 alias copy='xclip -selection clipboard'
 
@@ -9,6 +11,8 @@ alias update='
     sudo apt-get dist-upgrade
 '
 alias p='pomodoro'
+alias vi=nvim
+alias vim=nvim
 #######################################################################
 #                            git commands                             #
 #######################################################################
@@ -27,5 +31,6 @@ alias gl='git log'
 #######################################################################
 #                                MISC                                 #
 #######################################################################
-alias t="vim ~/Resources/todo/todo.txt"
-alias ls="lsd --extensionsort"
+alias nt="nvim + ~/Resources/todo/master.todo.txt"
+alias nn="zn"
+#alias ls="lsd --extensionsort"
