@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=2000
+HISTFILESIZE=3000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -57,8 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    #PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\w\[\033[00m\]\n➜  "
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u@\h\[\033[00m\]:\[\033[01;31m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\w\[\033[00m\]\[\033[00m\]: '
+    #PS1="\[\033[31m\]▶ \[\033[00m\] "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -132,6 +133,7 @@ fd() {
 
 export BAT_THEME="Coldark-Cold"
 export EDITOR=nvim
+export VISUAL=nvim
 export FZF_DEFAULT_OPTS="--color=light --reverse --multi \
                          --preview='head {}' \
                          --preview-window=hidden,wrap \
@@ -162,13 +164,3 @@ pb() {
     pomodoro break --wait && mpv ~/.pomodoro/loud-bell.ogg
 }
 . "$HOME/.cargo/env"
-case ${TERM} in
-
-  xterm*|rxvt*|Eterm|aterm|kterm|gnome*|st-256color)
-     PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
-
-    ;;
-  screen*)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
-    ;;
-esac

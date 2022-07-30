@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
-    y: 15
+    x: 15
+    y: 30
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -114,10 +114,13 @@ font:
     # Font family
     #
     # Default:
-    #family: Inconsolata
-    #family: Roboto Mono
-    family: Liberation Mono
-    #family: SauceCodePro Nerd Font
+    family: DejaVu Sans Mono
+    #family: mplus fxd
+    #family: LiterationMono Nerd Font
+    #family: Linux Libertine Mono O
+    #family: PT Mono
+    #family: Luxi Mono
+      #family: Oxygen Mono
 
     # The `style` can be specified to pick a specific face.
     #style: medium
@@ -156,7 +159,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 8.5
+  size: 8
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

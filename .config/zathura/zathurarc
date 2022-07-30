@@ -8,13 +8,15 @@ set synctex true
 
 set guioptions n
 set adjust-open "width"
+set window-title-basename true
+#set window-title-page true
 
 # ----------------------------------------------------------------------- #
 # -                             APPEARENCE                              - #
 # ----------------------------------------------------------------------- #
 
 
-set default-bg "#525659"
+set default-bg "#f2f2f2"
 
 
 # -- when recoloring black turns to
@@ -24,3 +26,4 @@ set recolor-darkcolor "#A5A5A5"
 set recolor-lightcolor "#2E2E2E"  
 
 set window-width 975
+set window-height 750

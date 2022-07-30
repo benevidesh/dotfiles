@@ -2,6 +2,7 @@ alias x='exit'
 alias c='clear'
 alias lf='ranger'
 alias vf='thunar . &'
+alias tmux='echo "Keep it simple, stupid!!!"'
 
 alias copy='xclip -selection clipboard'
 

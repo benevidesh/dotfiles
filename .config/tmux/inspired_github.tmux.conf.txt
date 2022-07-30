@@ -34,6 +34,6 @@ setw -g window-status-format '#[nobold,nounderscore,noitalics]#[fg=#979BAC] #I #
 setw -g window-status-current-format '#[fg=#ca1243,nobold,nounderscore,noitalics]#[fg=#ca1243] #I #W #F #[fg=green,nobold,nounderscore,noitalics]'
 set -g window-status-separator ""
 
-set -g pane-active-border-style "fg=#f2f2f2"
-set -g pane-border-style "fg=#f2f2f2"
-
+# border colours
+set -g pane-border-style fg=#f2f2f2
+set -g pane-active-border-style fg=#f2f2f2
