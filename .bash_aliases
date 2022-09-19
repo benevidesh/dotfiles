@@ -1,22 +1,18 @@
+alias ed="ed -v -p:"
+alias bal="nvim $HOME/.bash_aliases"
+alias brc="nvim $HOME/.bashrc"
+alias ev="nvim $HOME/.config/nvim/init.vim"
+alias p="cd $HOME/Projects"
+alias r="cd $HOME/Resources"
 alias x='exit'
 alias c='clear'
 alias lf='ranger'
 alias vf='thunar . &'
-alias tmux='echo "Keep it simple, stupid!!!"'
+alias vi='nvim'
+
+#alias tmux='echo "Keep it simple, stupid!!!"'
 
 alias copy='xclip -selection clipboard'
-
-alias update='
-    sudo apt-get update &&
-    sudo apt-get upgrade &&
-    sudo apt-get dist-upgrade
-'
-alias p='pomodoro'
-alias vi=nvim
-alias vim=nvim
-#######################################################################
-#                            git commands                             #
-#######################################################################
 
 alias gst='git status '
 alias ga='git add '

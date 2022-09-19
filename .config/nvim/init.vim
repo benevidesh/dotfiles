@@ -1,21 +1,16 @@
-
 " PLUGINS {{{
 call plug#begin('~/.config/nvim/plugged')
+    Plug 'axvr/photon.vim'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'honza/vim-snippets'
 
-Plug 'axvr/photon.vim'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'honza/vim-snippets'
-
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/goyo.vim'
  
-Plug 'preservim/nerdcommenter'
-Plug 'ferrine/md-img-paste.vim'
+    Plug 'preservim/nerdcommenter'
+    Plug 'ferrine/md-img-paste.vim'
 
-Plug 'lervag/vimtex'
-Plug 'ixru/nvim-markdown'
-Plug 'freitass/todo.txt-vim'
+    Plug 'lervag/vimtex'
+    Plug 'ixru/nvim-markdown'
 
 call plug#end()
 
@@ -28,11 +23,11 @@ EOF
 filetype plugin on		" enable default plugins for filetypes
 " set modelineexpr              " allow setting expression options from a modeline
 set hidden                      " don't unload a buffer when no longer shown in a window
-set autochdir			" auto change to dir containing the opened file
+"set autochdir			" auto change to dir containing the opened file
 set noswapfile			" self descriptive
 set noshowmode
 set background=dark		" self-descriptive
-set clipboard=unnamedplus	" access system clipboard
+set clipboard+=unnamedplus	" access system clipboard
 "set cursorline			" highlight screen line of the cursor
 set formatoptions-=r 		" no automatic comment afert <Enter>
 set hlsearch			" highlight matching pattern
@@ -43,8 +38,8 @@ set laststatus=0		" no status bar
 set wrap			" do not display wraped text
 set linebreak
 "set number relativenumber	" show line numbers relative way
-"set foldcolumn=2
-set path=**			" recursive path
+set foldcolumn=2
+set path+=**			" recursive path
 "set showmatch			" briefly jump to matching bracket
 set smartcase			" overrides ignorecase if pattern contains upper case chars
 set suffixesadd=.md		" includes .md files gf command
@@ -67,6 +62,8 @@ set foldopen-=block          " do not open folders while jumping around with },{
 set title
 set noruler
 set title titlestring=%<%F%=
+set wildignore+=*.aux
+set listchars=tab:›\ ,nbsp:␣,trail:•,precedes:«,extends:»
 
 " STATUSLINE {{{2
 function! GitBranch()
@@ -126,7 +123,7 @@ endif
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_math = 1
 
-let g:fzf_layout = { 'down': '30%' }
+"let g:fzf_layout = { 'down': '30%' }
 
 let g:goyo_width = 79
 
@@ -169,9 +166,9 @@ nnoremap <silent><leader>gf :e <cfile><cr>
 nnoremap <silent><leader>gl gF
 
 " find file
-nnoremap <leader>fe :FZF<space>~<cr>
+nnoremap <leader>fe :find<Space>
 nnoremap <silent><leader>ff :vert sfind <cfile><cr>
-nnoremap <leader>sf :vert sfind *
+nnoremap <leader>sf :vert sfind<Space>
 
 " Q to format lines 
 nnoremap Q gqip
@@ -189,7 +186,6 @@ nnoremap <leader>B :ls<cr>:vert<space>sb<space>
 
 " alternate
 nnoremap <silent><backspace> :b#<cr>
-
 
 " Go to the previous location
 nnoremap [q :cprev<CR>
@@ -235,12 +231,11 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 
 " AUTOCOMMAND {{{
-autocmd! BufRead,BufNewFile *todo.txt set breakindentopt=shift:4 laststatus=0
+autocmd! BufRead,BufNewFile *todo.txt set breakindentopt=shift:5 laststatus=0
 autocmd! BufRead,BufNewFile *.tex set conceallevel=2
 autocmd! BufRead,BufNewFile *.md syn match  htmlH2  /TODO/
 autocmd! FileType markdown nmap <silent> <localleader>i <Cmd>call mdip#MarkdownClipboardImage()<CR>
 autocmd! FileType markdown nmap <silent> <localleader>i <Cmd>call mdip#MarkdownClipboardImage()<CR>
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
 " }}}
 
 " UI {{{

@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u@\h\[\033[00m\]:\[\033[01;31m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\w\[\033[00m\]\[\033[00m\]: '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;38m\]\w\[\033[00m\]\[\033[00m\]: '
     #PS1="\[\033[31m\]▶ \[\033[00m\] "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -136,7 +136,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export FZF_DEFAULT_OPTS="--color=light --reverse --multi \
                          --preview='head {}' \
-                         --preview-window=hidden,wrap \
+                         --preview-window=70%,top,hidden,wrap \
                          --bind '?:toggle-preview'
 "
 
@@ -150,17 +150,29 @@ fo() {
   fi
 }
 
-n() {
-    $EDITOR ~/"$*".txt 
-}
+
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    tmux attach || tmux >/dev/null 2>&1
+fi
 
 
-ps() {
-    pomodoro start "$*" --wait && mpv ~/.pomodoro/bell.ogg 
-}
+if [ "$TERM" = "linux" ]; then
+    echo -en "\e]PB839496" # S_base00
+    echo -en "\e]PA93a1a1" # S_base01
+    echo -en "\e]P0eee8d5" # S_base02
+    echo -en "\e]P62aa198" # S_cyan
+    echo -en "\e]P8fdf6e3" # S_base03
+    echo -en "\e]P2859900" # S_green
+    echo -en "\e]P5d33682" # S_magenta
+    echo -en "\e]P1dc322f" # S_red
+    echo -en "\e]PC657b83" # S_base0
+    echo -en "\e]PE586e75" # S_base1
+    echo -en "\e]P9cb4b16" # S_orange
+    echo -en "\e]P7073642" # S_base2
+    echo -en "\e]P4268bd2" # S_blue
+    echo -en "\e]P3b58900" # S_yellow
+    echo -en "\e]PF002b36" # S_base3
+    echo -en "\e]PD6c71c4" # S_violet
+    clear # against bg artifacts
+fi
 
-
-pb() {
-    pomodoro break --wait && mpv ~/.pomodoro/loud-bell.ogg
-}
-. "$HOME/.cargo/env"
