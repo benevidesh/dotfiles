@@ -30,7 +30,7 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   dimensions:
-    columns: 85
+    columns: 80
     lines: 17
 
   # Window position (changes require restart)
@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 15
-    y: 30
+    x: 35
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -114,7 +114,7 @@ font:
     # Font family
     #
     # Default:
-    family: DejaVu Sans Mono
+    family: monospace
     #family: mplus fxd
     #family: LiterationMono Nerd Font
     #family: Linux Libertine Mono O
@@ -159,14 +159,14 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 8
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
     x: 0
-    y: 11
+    y: 10
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -309,42 +309,29 @@ colors:
   # Default colors
   primary:
     background: '0xffffff'
-    foreground: '0x4d4d4c'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0xffffff'
-    cursor: '0x4d4d4c'
+    foreground: '0x464646'
 
   # Normal colors
   normal:
-    black:   '0xffffff'
-    red:     '0xc82829'
-    green:   '0x718c00'
-    yellow:  '0xeab700'
-    blue:    '0x4271ae'
-    magenta: '0x8959a8'
-    cyan:    '0x3e999f'
-    white:   '0x4d4d4c'
+    black:   '0x101010'
+    red:     '0xaf5fd7'
+    green:   '0x8e8e8e'
+    yellow:  '0xa0a0a0'
+    blue:    '0x686868'
+    magenta: '0x747474'
+    cyan:    '0x868686'
+    white:   '0xb9b9b9'
 
   # Bright colors
   bright:
-    black:   '0x8e908c'
-    red:     '0xc82829'
-    green:   '0x718c00'
-    yellow:  '0xeab700'
-    blue:    '0x4271ae'
-    magenta: '0x8959a8'
-    cyan:    '0x3e999f'
-    white:   '0x1d1f21'
-
-  indexed_colors:
-    - { index: 16, color: '0xf5871f' }
-    - { index: 17, color: '0xa3685a' }
-    - { index: 18, color: '0xe0e0e0' }
-    - { index: 19, color: '0xd6d6d6' }
-    - { index: 20, color: '0x969896' }
-    - { index: 21, color: '0x282a2e' }
+    black:   '0x525252'
+    red:     '0xaf5fd7'
+    green:   '0x8e8e8e'
+    yellow:  '0xa0a0a0'
+    blue:    '0x686868'
+    magenta: '0x747474'
+    cyan:    '0x868686'
+    white:   '0xf7f7f7'
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based

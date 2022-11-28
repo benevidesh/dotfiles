@@ -30,7 +30,7 @@ set -g status-right-length 25
 
 set -g window-status-current-style "bold"
 set -g window-status-style "fg=#af5fd7"
-setw -g window-status-format '#[nobold,nounderscore,noitalics]#[fg=#979BAC] #I #W'
+setw -g window-status-format '#[nobold,nounderscore,noitalics]#[fg=#979BAC] #I #W '
 setw -g window-status-current-format '#[fg=#af5fd7,nobold,nounderscore,noitalics]#[fg=#af5fd7] #I #W #F #[fg=green,nobold,nounderscore,noitalics]'
 set -g window-status-separator ""
 

@@ -3,14 +3,14 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'axvr/photon.vim'
     Plug 'L3MON4D3/LuaSnip'
     Plug 'honza/vim-snippets'
+    Plug 'dhruvasagar/vim-table-mode'
 
-    Plug 'junegunn/goyo.vim'
- 
     Plug 'preservim/nerdcommenter'
     Plug 'ferrine/md-img-paste.vim'
 
     Plug 'lervag/vimtex'
     Plug 'ixru/nvim-markdown'
+    Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
@@ -132,11 +132,10 @@ let g:markdown_fenced_languages=['tex', 'sh']
 
 
 let g:tex_flavor='latex'
+
 let g:fleetingbox = "/home/benevidesh/Inbox/"
-
-command! NewZettel :execute ":e" fleetingbox . strftime("%Y%m%d%H%M%S") . ".md"
-
-nnoremap <leader>nz <Cmd>NewZettel<cr>
+command! NewNote :execute ":e" fleetingbox . strftime("%Y%m%d%H%M%S") . ".md"
+nnoremap <leader>nn <Cmd>NewNote<cr>
 
 nnoremap <leader>ww :update<CR>
 " }}}
@@ -219,6 +218,9 @@ nnoremap <silent> <F6> :set<space>spell!<cr>
 nnoremap <silent> <F9> :set wrap!<cr>
 nnoremap <silent> <F10> <Cmd>set number!<Bar>set relativenumber!<cr>
 nnoremap <silent> <F11> :Goyo 80<cr>
+
+nnoremap <silent> ]b :bn<cr>
+nnoremap <silent> [b :bp<cr>
 
 " VIM-SNIPPETS {{{2
 imap <silent><expr> <C-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-j>' 
