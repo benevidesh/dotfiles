@@ -45,7 +45,6 @@
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout"/>
-      <property name="&lt;Super&gt;f" type="string" value="exo-open --launch FileManager"/>
       <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-applicationsmenu"/>
       <property name="&lt;Super&gt;r" type="string" value="xfrun4">
         <property name="startup-notify" type="bool" value="true"/>
@@ -78,6 +77,7 @@
       <property name="&lt;Super&gt;t" type="string" value="jumpapp xfce4-terminal xfce4-terminal"/>
       <property name="&lt;Super&gt;w" type="string" value="jumpapp firefox firefox"/>
       <property name="Insert" type="string" value="quickcapture"/>
+      <property name="&lt;Super&gt;f" type="string" value="jumpapp thunar thunar"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
