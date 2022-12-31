@@ -1,0 +1,29 @@
+# ----------------------------------------------------------------------- #
+# -                          GENERAL SETTINGS                           - #
+# ----------------------------------------------------------------------- #
+
+
+set dbus-service true
+set synctex true
+
+set guioptions n
+set adjust-open "width"
+
+set window-title-basename true
+#set window-title-page true
+
+# ----------------------------------------------------------------------- #
+# -                             APPEARENCE                              - #
+# ----------------------------------------------------------------------- #
+
+
+set default-bg "#F2F2F2"
+
+# -- when recoloring black turns to
+set recolor-darkcolor "#c6c6c6"
+
+# -- when recoloring white turns to
+set recolor-lightcolor "#262626"  
+
+set window-width 940
+set window-height 760
