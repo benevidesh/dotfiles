@@ -1,0 +1,29 @@
+# [Created by task 2.6.2 12/21/2022 20:17:52]
+
+data.location=~/.local/share/task
+hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+# include light-16.theme
+ include light-256.theme
+#include dark-16.theme
+# include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+news.version=2.6.0
+
+taskd.certificate=~/.local/share/task/private.certificate.pem
+taskd.key=~/.local/share/task/private.key.pem
+taskd.ca=~/.local/share/task/ca.cert.pem
+taskd.server=inthe.am:53589
+taskd.credentials=inthe_am/benevideshudson/59dd4469-d5e7-4263-8d05-23e8d7e188b8
+taskd.trust=strict
