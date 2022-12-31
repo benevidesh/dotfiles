@@ -1,0 +1,10 @@
+#!/bin/bash
+
+place=${1:-${PWD}}
+note_ui_name="$(date +'%Y%m%d%H%M%S').md"
+fleeting_dst="$place/$note_ui_name"
+
+
+#st -g 100x10 -n "nvim - scratchpad" -t "fleeting note" -e
+
+io.elementary.terminal -e nvim

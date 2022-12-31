@@ -1,0 +1,4 @@
+#!/bin/bash
+
+contents="ID:TITLE\n\n"
+grep --max-count=1 "^#[[:space:]][[:alpha:]]" *.md | sed 's/.md:#[[:space:]]/ § /g' 

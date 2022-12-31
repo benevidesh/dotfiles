@@ -1,0 +1,25 @@
+#!/bin/bash
+# nh - note hub
+
+_this=$(basename $0)
+_usage () {
+    cat <<EOF
+nh - creat a note hub
+
+    Usage:
+    \$ ${_this} keyword(s)
+
+    Example:
+    \$ ${_this} metaphysical inquire
+
+EOF
+}
+
+
+[[ $# -eq 0 ]] && _usage && exit 0
+
+keywords=$(echo "$@" | sed 's/ /-/g')
+note_ui="$(date +'%Y%m%d%H%M%S')"
+hubname="$note_ui-$keywords.md"
+
+${EDITOR:-vim} "$hubname" 2>/dev/null

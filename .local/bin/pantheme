@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+case $1 in
+    -d )
+        ;;
+    -l )
+        gsettings set io.elementary.terminal.settings background "rgba(232, 233, 236, 0.98)"
+        #"rgba(253,246,227, 0.95)"
+        gsettings set io.elementary.terminal.settings foreground "#33374c"
+        ;;
+    *)
+        exit 0
+        ;;
+esac

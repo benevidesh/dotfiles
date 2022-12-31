@@ -1,0 +1,4 @@
+#!/bin/sh
+
+w3m "https://www.linguee.com/english-portuguese/search?source=auto&query=$*"
+

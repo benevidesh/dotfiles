@@ -1,0 +1,14 @@
+#entry_date=$(date "+%F" -d "$*")
+#entry_date=$(date +'%Y-W%W')
+#       week_day=$(export LC_TIME=pt_BR.UTF-8 && date "+%F %a" -d "$entry_date")
+#journal_file="/home/benevidesh/Resources/journal/$entry_date.md"
+journal_file="/home/benevidesh/Resources/journal/journal/jrnl.md"
+
+#if [[ -f  $journal_file ]]; then
+    nvim + "$journal_file"
+#else
+#    echo -e "# $week_day.\n" >> $journal_file
+#    nvim +3 "$journal_file"
+#fi
+
+# vim:ft=sh

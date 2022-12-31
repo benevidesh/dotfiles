@@ -1,0 +1,24 @@
+#!/bin/bash
+
+selected=$(printf "linguee\nthesaurus\nwordnet" | fzf)
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+read -p "Enter query: " query
+
+case $selected in
+    linguee)
+        #tmux neww bash -c "linguee $query"
+        linguee 
+        ;;
+    thesaurus)
+        #tmux neww bash -c "thesaurus $query"
+        thesaurus "$query"
+        ;;
+    wordnet)
+        tmux neww bash -c "w3m http://wordnetweb.princeton.edu/perl/webwn?s=$query"
+esac
+
+tmux rename-window "$query"

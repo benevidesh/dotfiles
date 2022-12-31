@@ -1,0 +1,27 @@
+#!/bin/bash
+TODO_INBOX_FILE="/home/benevidesh/Resources/journal/tasks/inbox.todo.txt"
+DM_PROMPT="QuickNote 📝"
+TODO_INBOX_PRI="(N)"
+DM_OPTS="-i"
+
+case $1 in
+    -a)
+        ADD_TODO=$(printf '' | dmenu "$DM_OPTS" -p "$DM_PROMPT")
+        if [[ ! -z "$ADD_TODO" ]]; then
+            echo "$TODO_INBOX_PRI  $ADD_TODO" >> $TODO_INBOX_FILE
+        fi
+        ;;
+    -e)
+        $EDITOR "$TODO_INBOX_FILE"
+        ;;
+    -s)
+        SHOW_TODO=$(cat $TODO_INBOX_FILE | dmenu "$DM_OPTS" -l 10)
+        ;;
+    -p)
+        # TODO: show projects; etc...
+        exit 1
+        ;;
+    *)
+        exit 1
+        ;;
+esac

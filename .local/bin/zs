@@ -1,0 +1,50 @@
+#!/usr/bin/bash
+
+# TODO: new formating for list output
+# filtered=$(grep -H "title" ${allMatches[@]} | cut -d: -f1,3 --output-delimiter ' ' | sed 's/\(^.*\)\.md \(.*\)/ /g')
+
+# TODO: options for copying Links in markdown format:
+# --bind "ctrl-y:execute(printf '%s\n' {+} | sed 's/\([0-9]\+\.md\) - \(.*\)/[\2](\1)/g' | xclip -selection clipboard)" \
+
+# XXX: safer command for preview (?)
+#--preview "echo {} | grep -o '[0-9]\+\.md' | xargs bat --style=plain --color=always || xargs cat {}" \
+
+# TODO: auto reload with new query
+
+set -e
+
+if [[  -z "$1" ]]; then
+    QUERY="title"
+else
+    QUERY="$1"
+fi
+
+allMatches=$(grep -il "$QUERY" *.md)
+
+# FIXME: not catching error
+if [[ -z "$allMatches" ]]; then
+    echo "No results found for $QUERY."
+    exit 0
+fi
+
+# TODO: do not search for title two times 
+filtered=$(grep -Hw "^title" ${allMatches[@]} | cut -d: -f1,3 --output-delimiter ' -' | sed 's/\.md/ /;s/  / /g')
+
+
+# TODO: clean up fzf command; separade bindings for customization.
+main() {
+    printf "%s\n" "$filtered" |  fzf --tac --multi \
+                                --delimiter - \
+                                --bind '?:toggle-preview' \
+                                --bind 'ctrl-l:clear-selection' \
+                                --bind "ctrl-y:execute(printf '%s\n' {+} | sed 's/\([0-9]\+\) - \(.*\)/\2 [[\1]] /g' | xclip -selection clipboard)" \
+                                --bind 'enter:execute(printf "%s\n" {+} | cut -d- -f1 | sed "s/ .\?$/.md/" | xargs -o nvim -c "silent bufdo grepadd ^'$QUERY' %")' \
+                                --bind 'ctrl-o:execute(echo {} | grep -o "[0-9]\+\.md" | xargs xdg-open )' \
+                                --bind 'ctrl-p:execute(printf "%s\n" {+} | cut -d- -f1)' \
+                                --layout=reverse \
+                                --preview 'cat {1}.md ' \
+                                --preview-window=wrap
+}
+
+main
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+KASTEN="/home/benevidesh/Resources/Zettelkasten"
+
+
+if [[ -n "$1" ]]; then
+    search_term="$1"
+else
+    echo "Please specify a search term."
+    exit 1
+fi
+
+
+
+find $KASTEN/ -type f -name "*.md" | xargs grep --max-count=1 -n -i "$search_term" | \
+    while read -r adr; do
+        file=$(echo "$adr" | cut -d ':' -f 1)
+        contxt=$(echo "$adr" | cut -d ':' -f 2)
+        title=$(printf "%s" $file | xargs grep --max-count=1 "^% [[:alpha:]]" | sed "s/% //g")
+
+        printf "%s\n" $file:$contxt:"$title"
+    done
+

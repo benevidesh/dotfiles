@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+# for using with fo()
+function open () {
+    xdg-open "$*" &
+}
+
+# fo fuzzy open files {{{
+fo() {
+  IFS=$'\n' out=("$(fzf-tmux -p 80% --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && open "$file" || >/dev/null 2>&1
+  fi
+}
+
+
+fo

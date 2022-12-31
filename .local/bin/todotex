@@ -1,0 +1,12 @@
+#!/bin/bash
+
+todo_id=$(date +'%Y%m%d%H%M%S')
+
+todofmt=$(cat << EOF
+% TODO: %
+% ${todo_id}
+ 
+EOF
+)
+
+printf "%s\n" "${todofmt}"
