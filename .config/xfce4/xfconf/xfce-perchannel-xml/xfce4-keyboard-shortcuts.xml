@@ -76,8 +76,8 @@
       <property name="F12" type="string" value="xfce4-terminal --drop-down"/>
       <property name="&lt;Super&gt;t" type="string" value="jumpapp xfce4-terminal xfce4-terminal"/>
       <property name="&lt;Super&gt;w" type="string" value="jumpapp firefox firefox"/>
-      <property name="Insert" type="string" value="quickcapture"/>
       <property name="&lt;Super&gt;f" type="string" value="jumpapp thunar thunar"/>
+      <property name="Insert" type="string" value="xfce4-terminal --drop-down --tab -e jrnl"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
