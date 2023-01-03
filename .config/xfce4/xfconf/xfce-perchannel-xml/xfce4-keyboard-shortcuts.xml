@@ -78,6 +78,7 @@
       <property name="&lt;Super&gt;w" type="string" value="jumpapp firefox firefox"/>
       <property name="&lt;Super&gt;f" type="string" value="jumpapp thunar thunar"/>
       <property name="Insert" type="string" value="xfce4-terminal --drop-down --tab -e jrnl"/>
+      <property name="&lt;Super&gt;v" type="string" value="jumpapp zathura zathura"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
