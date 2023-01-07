@@ -7,7 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ferrine/md-img-paste.vim'
     Plug 'lervag/vimtex'
     Plug 'ixru/nvim-markdown'
-    Plug 'mcchrish/zenbones.nvim'
+    Plug 'cideM/yui'
 call plug#end()
 " }}}
 "
@@ -52,6 +52,9 @@ set title titlestring=%<%F%=
 set undofile
 set wildignore+=*.aux
 set wrap
+
+" nerdcomment
+let g:NERDSpaceDelims=1
 " }}}
 "
 " MAPPINGS {{{
@@ -92,8 +95,6 @@ nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
 imap <silent><expr> <C-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-k>' 
 
-" nerdcomment
-let g:NERDSpaceDelims=1
 
 " }}}
 "
@@ -104,10 +105,8 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 "
 " COLOR {{{
-set background=light
-let g:zenbones_compat = 1
 "colorscheme antiphoton
-colorscheme zenbones
+colorscheme yui
 " }}}
 "
 " AUTOCMDS {{{

@@ -34,11 +34,12 @@ DropdownShowBorders=TRUE
 MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
 ColorPalette=#000000;#aa0000;#44aa44;#aa5500;#0039aa;#aa22aa;#1a92aa;#aaaaaa;#888888;#ff8787;#4ce64c;#ded82c;#295fcc;#cc58cc;#4ccce6;#ffffff
 ColorForeground=#1f3566
-ColorBackground=#f0f0ededecec
+ColorBackground=#efefeaeae5e5
 ColorCursor=#0f4999
 ColorSelection=#bbbbbb
 ColorBold=#000000
 ColorBoldUseDefault=FALSE
 TabActivityColor=#0f4999
 ColorBoldIsBright=FALSE
+BackgroundDarkness=0,960000
 
