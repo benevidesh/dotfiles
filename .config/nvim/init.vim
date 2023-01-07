@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ferrine/md-img-paste.vim'
     Plug 'lervag/vimtex'
     Plug 'ixru/nvim-markdown'
+    Plug 'mcchrish/zenbones.nvim'
 call plug#end()
 " }}}
 "
@@ -103,7 +104,10 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 "
 " COLOR {{{
-colorscheme antiphoton
+set background=light
+let g:zenbones_compat = 1
+"colorscheme antiphoton
+colorscheme zenbones
 " }}}
 "
 " AUTOCMDS {{{
