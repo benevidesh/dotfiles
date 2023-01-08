@@ -1,5 +1,5 @@
 [Configuration]
-FontName=DejaVu Sans Mono 9.5
+FontName=DejaVu Sans Mono 10
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -27,7 +27,7 @@ MiscSlimTabs=TRUE
 MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
-CellHeightScale=1,550000
+CellHeightScale=1,500000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TitleMode=TERMINAL_TITLE_REPLACE
 DropdownShowBorders=TRUE

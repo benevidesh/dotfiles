@@ -1,6 +1,5 @@
 " PLUGINS {{{
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'axvr/photon.vim'
     Plug 'L3MON4D3/LuaSnip'
     Plug 'honza/vim-snippets'
     Plug 'preservim/nerdcommenter'
@@ -105,8 +104,11 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 "
 " COLOR {{{
-"colorscheme antiphoton
+let g:yui_folds = 'emphasize'
 colorscheme yui
+
+hi Comment guifg=#b4aba7 ctermfg=181
+hi FoldColumn guibg=none
 " }}}
 "
 " AUTOCMDS {{{
