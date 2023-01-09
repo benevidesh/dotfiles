@@ -6,7 +6,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ferrine/md-img-paste.vim'
     Plug 'lervag/vimtex'
     Plug 'ixru/nvim-markdown'
-    Plug 'cideM/yui'
+    Plug 'junegunn/goyo.vim'
+    Plug 'axvr/photon.vim'
 call plug#end()
 " }}}
 "
@@ -22,7 +23,7 @@ set fillchars+=foldsep:\
 set foldcolumn=2
 set foldopen-=block
 set formatoptions-=r
- set guicursor=
+set guicursor=
 set hidden 
 set nohlsearch
 set ignorecase
@@ -104,11 +105,7 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 "
 " COLOR {{{
-let g:yui_folds = 'emphasize'
-colorscheme yui
-
-hi Comment guifg=#b4aba7 ctermfg=181
-hi FoldColumn guibg=none
+colorscheme antiphoton
 " }}}
 "
 " AUTOCMDS {{{
