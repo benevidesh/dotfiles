@@ -1,5 +1,5 @@
 [Configuration]
-FontName=DejaVu Sans Mono 10
+FontName=Inconsolata Medium 11.5
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -41,4 +41,5 @@ TabActivityColor=#0f4999
 BackgroundDarkness=0,960000
 CellHeightScale=1,500000
 ColorBoldIsBright=FALSE
+DropdownAnimationTime=43
 
