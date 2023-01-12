@@ -8,6 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ixru/nvim-markdown'
     Plug 'junegunn/goyo.vim'
     Plug 'axvr/photon.vim'
+    Plug 'cideM/yui'
 call plug#end()
 " }}}
 "
@@ -19,6 +20,7 @@ set tabstop=4
 set breakindent
 set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
+set fillchars=fold:-
 set fillchars+=foldsep:\ 
 set foldcolumn=2
 set foldopen-=block
@@ -105,7 +107,8 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 "
 " COLOR {{{
-colorscheme antiphoton
+colorscheme yui
+hi Normal guifg=#292523
 " }}}
 "
 " AUTOCMDS {{{
