@@ -7,7 +7,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lervag/vimtex'
     Plug 'ixru/nvim-markdown'
     Plug 'junegunn/goyo.vim'
-    Plug 'axvr/photon.vim'
     Plug 'cideM/yui'
 call plug#end()
 " }}}
@@ -108,7 +107,7 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 "
 " COLOR {{{
 colorscheme yui
-hi Normal guifg=#292523
+hi Normal guifg=#292523 guibg=none
 " }}}
 "
 " AUTOCMDS {{{

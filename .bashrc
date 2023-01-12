@@ -122,7 +122,7 @@ fi
 export FZF_DEFAULT_OPTS="--reverse --multi \
                          --preview='head {}' \
                          --preview-window=66%,top,hidden,wrap \
-                         --color=light \
+                         --color=bw \
                          --bind '?:toggle-preview'"
                          
 
