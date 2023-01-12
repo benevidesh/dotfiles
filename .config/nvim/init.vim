@@ -96,7 +96,6 @@ nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
 imap <silent><expr> <C-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-k>' 
 
-
 " }}}
 "
 " ABREVIATIONS {{{
