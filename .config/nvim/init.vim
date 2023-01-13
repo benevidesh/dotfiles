@@ -106,7 +106,9 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 "
 " COLOR {{{
 colorscheme yui
-hi Normal guifg=#292523 guibg=none
+hi Normal guifg=#292523 guibg=#fdf6e3
+hi CursorLine guibg=#eee8d5
+
 " }}}
 "
 " AUTOCMDS {{{
