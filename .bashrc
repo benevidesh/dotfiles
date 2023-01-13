@@ -149,3 +149,26 @@ fd() {
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 export EDITOR=nvim
 export VISUAL=nvim
+
+#########################################################################
+# TTY
+#########################################################################
+if [ "$TERM" = "linux" ]; then
+    echo -en "\e]PB657b83" # base00
+    echo -en "\e]PA586e75" # base01
+    echo -en "\e]P0073642" # base02
+    echo -en "\e]P62aa198" # cyan
+    echo -en "\e]P8002b36" # base03
+    echo -en "\e]P2859900" # green
+    echo -en "\e]P5d33682" # magenta
+    echo -en "\e]P1dc322f" # red
+    echo -en "\e]PC839496" # base0
+    echo -en "\e]PE93a1a1" # base1
+    echo -en "\e]P9cb4b16" # orange
+    echo -en "\e]P7eee8d5" # base2
+    echo -en "\e]P4268bd2" # blue
+    echo -en "\e]P3b58900" # yellow
+    echo -en "\e]PFfdf6e3" # base3
+    echo -en "\e]PD6c71c4" # violet
+    clear
+fi
