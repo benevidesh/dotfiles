@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=100000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -128,11 +128,12 @@ export FZF_DEFAULT_OPTS="--reverse --multi \
 
 # fuzzy open
 fo() {
-  IFS=$'\n' out=("$(fzf --query="$1" --exit-0 --expect=enter,ctrl-o,ctrl-e)")
+  IFS=$'\n' out=("$(fzf --query="$1" --exit-0 --expect=enter,ctrl-o,ctrl-y)")
   key=$(head -1 <<< "$out")
   file=$(head -2 <<< "$out" | tail -1)
   if [ -n "$file" ]; then
     [ "$key" = enter ] && xdg-open "$file" || >/dev/null 2>&1
+    [ "$key" = ctrl-y ] && echo "$file" | copy || >/dev/null 2>&1
   fi
 }
 
