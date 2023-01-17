@@ -1,3 +1,4 @@
+alias refresh='source ~/.bashrc'
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias t="task"
 alias to="taskopen"
@@ -13,8 +14,10 @@ alias c='clear'
 alias lf='ranger'
 alias vf='thunar . &'
 alias vi='nvim'
+alias us="setxkbmap -layout us -variant altgr-intl"
 
 #alias tmux='echo "Keep it simple, stupid!!!"'
+alias trc="nvim /home/benevidesh/.config/tmux/tmux.conf"
 
 alias copy='xclip -selection clipboard'
 
