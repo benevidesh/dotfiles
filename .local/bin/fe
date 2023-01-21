@@ -2,8 +2,19 @@
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor {{{
 fe() {
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --expect=enter,ctrl-r --multi --select-1 --exit-0))
+
+  key=${files[0]}
+  selected=$(printf "%s\n" ${files[@]:1})
+
+  # [[ -n "$selected" ]] && ${EDITOR:-nvim} ${selected[@]}
+
+  if [ -n "$selected" ]; then
+    [ "$key" = enter ] && ${EDITOR:-nvim} ${selected[@]}
+    # [ "$key" = ctrl-r ] && printf "$selected" | xargs -I{} nvim --server "$NVIM_LISTEN_ADDRESS" --remote {} || >/dev/null 2>&1
+    [ "$key" = ctrl-r ] && nvim --server "$NVIM_LISTEN_ADDRESS" --remote ${selected[@]}
+  fi
+
 }
 
 fe
