@@ -11,7 +11,6 @@ alias r="cd $HOME/Resources"
 alias x='exit'
 alias q='exit'
 alias c='clear'
-alias lf='ranger'
 alias vf='thunar . &'
 alias vi='nvim'
 alias us="setxkbmap -layout us -variant altgr-intl"
