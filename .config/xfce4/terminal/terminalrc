@@ -1,6 +1,6 @@
 [Configuration]
 FontName=DejaVu Sans Mono 10
-MiscAlwaysShowTabs=TRUE
+MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
 MiscBordersDefault=TRUE
@@ -28,16 +28,16 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
-CellHeightScale=1,500000
-ColorForeground=#292925252323
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TitleMode=TERMINAL_TITLE_REPLACE
-ColorBackground=#fdf6e3
-ColorCursor=#073642
-ColorBold=#073642
-ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#002b36;#cb4b16;#586e75;#657b83;#839496;#6c71c4;#93a1a1;#fdf6e3
-TabActivityColor=#dc322f
-ColorBoldIsBright=FALSE
 DropdownShowBorders=TRUE
 DropdownStatusIcon=FALSE
+ColorBackground=#fdf6e3
+ColorForeground=#073642
+ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#002b36;#cb4b16;#586e75;#657b83;#839496;#6c71c4;#93a1a1;#fdf6e3
+ColorCursor=#073642
+ColorBold=#073642
+ColorBoldUseDefault=FALSE
+TabActivityColor=#dc322f
+CellHeightScale=1,300000
 
