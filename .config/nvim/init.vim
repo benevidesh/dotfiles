@@ -5,9 +5,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdcommenter'
     Plug 'ferrine/md-img-paste.vim'
     Plug 'lervag/vimtex'
-    Plug 'ixru/nvim-markdown'
     Plug 'junegunn/goyo.vim'
-    Plug 'cideM/yui'
+    Plug 'andreypopp/vim-colors-plain'
+    Plug 'ixru/nvim-markdown'
 call plug#end()
 " }}}
 "
@@ -19,8 +19,7 @@ set tabstop=4
 set breakindent
 set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
-set fillchars=fold:-
-set fillchars+=foldsep:\ 
+set fillchars=fold:-,foldclose:\ ,foldsep:\ 
 set foldcolumn=2
 set foldopen-=block
 set formatoptions-=r
@@ -56,6 +55,13 @@ set wrap
 
 " nerdcomment
 let g:NERDSpaceDelims=1
+
+" goyo
+function! s:goyo_enter()
+    hi Folded guifg=gray guibg=none
+endfunction
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+
 " }}}
 "
 " MAPPINGS {{{
@@ -71,10 +77,10 @@ nnoremap <leader>fe :find<Space>
 nnoremap <leader>nn <Cmd>NewNote<cr>
 nnoremap <leader>sf :vert sfind<Space>
 nnoremap <leader>ww :update<CR>
-nnoremap <silent> <F6> :set<space>spell!<cr>
 nnoremap <silent> <leader>sw :set wrap!<cr>
+nnoremap <silent> <F6> :set<space>spell!<cr>
 nnoremap <silent> <F10> <Cmd>set number!<Bar>set relativenumber!<cr>
-nnoremap <silent> <F11> :Goyo 80<cr>
+nnoremap <silent> <F11> :Goyo<cr>
 nnoremap <silent> <leader>ev :split $MYVIMRC<cr>
 nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 nnoremap <silent> [b :bp<cr>
@@ -95,7 +101,7 @@ nnoremap Q gqip
 nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
 imap <silent><expr> <C-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-k>' 
-
+nnoremap <silent><leader>p :ex.<enter>
 " }}}
 "
 " ABREVIATIONS {{{
@@ -105,9 +111,11 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 "
 " COLOR {{{
-colorscheme yui
-hi Normal guifg=#292523 guibg=#fdf6e3
-hi CursorLine guibg=#eee8d5
+if exists('$TMUX')
+    set background=light
+endif
+
+colorscheme plain
 
 " }}}
 "
