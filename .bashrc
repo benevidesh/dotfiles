@@ -8,6 +8,14 @@ case $- in
       *) return;;
 esac
 
+#########################################################################
+# READLINE
+#########################################################################
+export INPUTRC="/home/benevidesh/.config/inputrc"
+
+#########################################################################
+# HISTORY
+#########################################################################
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -119,6 +127,9 @@ fi
 #########################################################################
 # FZF
 #########################################################################
+source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/bash-completion/completions/fzf
+
 export FZF_DEFAULT_OPTS="--reverse --multi \
                          --preview='head {}' \
                          --preview-window=66%,top,hidden,wrap \
@@ -151,10 +162,6 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 export EDITOR=nvim
 export VISUAL=nvim
 
-#########################################################################
-# READLINE
-#########################################################################
-export INPUTRC="$HOME/.config/inputrc"
 #########################################################################
 # TTY
 #########################################################################
