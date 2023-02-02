@@ -1,3 +1,4 @@
+alias ls='ls -1 --color=always'
 alias refresh='source ~/.bashrc'
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias t="task"
