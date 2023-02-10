@@ -33,11 +33,10 @@ TitleMode=TERMINAL_TITLE_REPLACE
 DropdownShowBorders=TRUE
 DropdownStatusIcon=FALSE
 ColorBackground=#fdf6e3
-ColorForeground=#073642
-ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#002b36;#cb4b16;#586e75;#657b83;#839496;#6c71c4;#93a1a1;#fdf6e3
-ColorCursor=#073642
-ColorBold=#073642
-TabActivityColor=#dc322f
+ColorForeground=#464646464646
+ColorPalette=#101010101010;#C30771;#8e8e8e8e8e8e;#a0a0a0a0a0a0;#686868686868;#747474747474;#868686868686;#b9b9b9b9b9b9;#525252525252;#C30771;#8e8e8e8e8e8e;#a0a0a0a0a0a0;#686868686868;#747474747474;#868686868686;#f7f7f7f7f7f7
+ColorCursor=#464646464646
 CellHeightScale=1,300000
 ColorBoldIsBright=FALSE
+BackgroundDarkness=0,960000
 
