@@ -3,7 +3,7 @@
 JRNL_DEST="/home/benevidesh/Resources/Triquetra/jrnl/"
 file=$(date +"%F" -d "$*")
 
-desc_date="$(date +'%A %d %B %Y')"
+desc_date=$(date +'%a, %d %b %Y' -d "$*")
 
 
 file_header=$(cat << EOF
