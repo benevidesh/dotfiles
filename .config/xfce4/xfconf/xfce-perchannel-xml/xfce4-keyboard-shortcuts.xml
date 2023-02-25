@@ -76,12 +76,12 @@
       <property name="&lt;Alt&gt;F9" type="string" value="jumpapp -x evince"/>
       <property name="F11" type="string" value="jumpapp -x thunar"/>
       <property name="Insert" type="string" value="xfce4-terminal --drop-down --tab -e jn"/>
-      <property name="F8" type="string" value="jumpapp -x xfce4-terminal"/>
       <property name="&lt;Super&gt;b" type="string" value="xfce4-panel || xfce4-panel -q"/>
       <property name="F9" type="string" value="jumpapp -mx zathura"/>
-      <property name="&lt;Alt&gt;F8" type="string" value="jumpapp -m xfce4-terminal"/>
       <property name="&lt;Alt&gt;F10" type="string" value="jumpapp -mr brave-browser"/>
       <property name="F10" type="string" value="jumpapp -m firefox"/>
+      <property name="&lt;Alt&gt;F8" type="string" value="jumpapp -m st"/>
+      <property name="F8" type="string" value="jumpapp -x xfce4-terminal"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -181,7 +181,6 @@
       <property name="&lt;Alt&gt;Insert" type="string" value="add_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_7" type="string" value="move_window_workspace_7_key"/>
       <property name="Escape" type="string" value="cancel_key"/>
-      <property name="&lt;Super&gt;d" type="string" value="show_desktop_key"/>
       <property name="&lt;Super&gt;KP_Page_Up" type="string" value="tile_up_right_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_8" type="string" value="move_window_workspace_8_key"/>
       <property name="&lt;Super&gt;KP_Down" type="string" value="tile_up_key"/>
@@ -218,6 +217,7 @@
       <property name="F6" type="string" value="switch_application_key"/>
       <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
+      <property name="Home" type="string" value="show_desktop_key"/>
     </property>
   </property>
   <property name="providers" type="array">

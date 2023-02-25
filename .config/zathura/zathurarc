@@ -16,13 +16,13 @@ set window-title-basename true
 # -                             APPEARENCE                              - #
 # ----------------------------------------------------------------------- #
 
-set default-bg "#eee8d5"
+set default-bg "#fbfbfb"
 
 ###############################################################################
 # RECOLOR
 ###############################################################################
 
-set recolor true
+set recolor false
 
 # recoloring BLACK to
 set recolor-darkcolor "#292523" #yui_black03

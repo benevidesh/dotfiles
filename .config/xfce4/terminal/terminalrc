@@ -1,12 +1,12 @@
 [Configuration]
-FontName=DejaVu Markup 10
+FontName=Liberation Mono 10
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
 MiscBordersDefault=TRUE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
-MiscDefaultGeometry=80x17
+MiscDefaultGeometry=70x17
 MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
@@ -32,11 +32,10 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TitleMode=TERMINAL_TITLE_REPLACE
 DropdownShowBorders=TRUE
 DropdownStatusIcon=FALSE
-ColorBackground=#fdf6e3
-ColorForeground=#464646464646
-ColorPalette=#101010101010;#C30771;#8e8e8e8e8e8e;#a0a0a0a0a0a0;#686868686868;#747474747474;#868686868686;#b9b9b9b9b9b9;#525252525252;#C30771;#8e8e8e8e8e8e;#a0a0a0a0a0a0;#686868686868;#747474747474;#868686868686;#f7f7f7f7f7f7
-ColorCursor=#464646464646
-CellHeightScale=1,300000
-ColorBoldIsBright=FALSE
+ColorBackground=#ffffffffe8e8
+ColorForeground=#000000
+ColorPalette=rgb(0,0,0);rgb(173,79,79);rgb(70,135,71);rgb(143,119,52);rgb(38,139,210);rgb(136,138,202);rgb(106,167,168);rgb(243,243,211);rgb(135,135,129);rgb(255,221,221);rgb(235,255,235);rgb(237,238,165);rgb(38,139,210);rgb(161,238,237);rgb(255,255,235);rgb(150,209,151)
 BackgroundDarkness=0,960000
+ColorBoldIsBright=FALSE
+CellHeightScale=1,200000
 

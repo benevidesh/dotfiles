@@ -5,9 +5,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdcommenter'
     Plug 'ferrine/md-img-paste.vim'
     Plug 'lervag/vimtex'
-    Plug 'junegunn/goyo.vim'
-    Plug 'andreypopp/vim-colors-plain'
     Plug 'ixru/nvim-markdown'
+"    Plug 'ntk148v/komau.vim'
+    Plug 'arzg/vim-plan9'
 call plug#end()
 " }}}
 "
@@ -20,7 +20,7 @@ set breakindent
 set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
 set fillchars=fold:-,foldclose:\ ,foldsep:\ 
-set foldcolumn=2
+" set foldcolumn=2
 set foldopen-=block
 set formatoptions-=r
 set guicursor=
@@ -115,12 +115,15 @@ if exists('$TMUX')
     set background=light
 endif
 
-colorscheme plain
+set background=light
+colorscheme plan9
 
 " }}}
 "
 " AUTOCMDS {{{
 au BufNewFile,BufRead *.jrnl set ft=jrnl
+au BufNewFile,BufRead ~/Resources/Triquetra/jrnl/* set ft=jrnl
+
 " }}}
 "
 " LUA {{{
