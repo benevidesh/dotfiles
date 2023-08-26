@@ -21,3 +21,6 @@ set keyseq-timeout 0
 # colors
 set colored-completion-prefix on
 set colored-stats on
+
+# BIDINGS
+bind '"":"tmux-sessionizer\n"' 
