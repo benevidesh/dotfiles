@@ -6,8 +6,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ferrine/md-img-paste.vim'
     Plug 'lervag/vimtex'
     Plug 'ixru/nvim-markdown'
-"    Plug 'ntk148v/komau.vim'
     Plug 'arzg/vim-plan9'
+    Plug 'junegunn/goyo.vim'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 " }}}
 "
@@ -23,7 +24,7 @@ set fillchars=fold:-,foldclose:\ ,foldsep:\
 " set foldcolumn=2
 set foldopen-=block
 set formatoptions-=r
-set guicursor=
+" set guicursor=
 set hidden 
 set nohlsearch
 set ignorecase
@@ -46,7 +47,7 @@ set splitbelow
 set splitright
 set suffixesadd=.md
 set termguicolors
-"set thesaurus+=/home/benevides/resources/vim/mthesaur.txt
+set thesaurus+=/home/benevides/.config/nvim/mthesaur.txt
 set title
 set title titlestring=%<%F%=
 set undofile
@@ -58,7 +59,7 @@ let g:NERDSpaceDelims=1
 
 " goyo
 function! s:goyo_enter()
-    hi Folded guifg=gray guibg=none
+    " hi Folded guifg=gray guibg=none
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
@@ -122,8 +123,7 @@ colorscheme plan9
 "
 " AUTOCMDS {{{
 au BufNewFile,BufRead *.jrnl set ft=jrnl
-au BufNewFile,BufRead ~/Resources/Triquetra/jrnl/* set ft=jrnl
-
+au BufNewFile,BufRead ~/02-Resources/Triquetra/jrnl/* set ft=jrnl
 " }}}
 "
 " LUA {{{

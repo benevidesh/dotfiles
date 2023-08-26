@@ -3,12 +3,14 @@ if exists("b:current_syntax")
     finish
 endif
 
+syntax match todo "TODO"
 syntax match jtag "@.\{-}\w\+"
 syntax match jproj "+.\{-}\w\+"
 syntax match jyear /\[\d\{4}-\d\d-\d\d \d\d:\d\d\]/
 
 syntax region entryLine start=/\d\{4}-\d\d-\d\d \d\d:\d\d/ end=/\]/ contains=jyear
 
+highlight def todo guifg=Green
 highlight def jtag guifg=Green
 highlight def jproj guifg=Green
 highlight def jyear guifg=Gray

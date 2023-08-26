@@ -31,6 +31,8 @@ HISTFILESIZE=100000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+shopt -s expand_aliases
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
@@ -127,8 +129,8 @@ fi
 #########################################################################
 # FZF
 #########################################################################
-source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/bash-completion/completions/fzf
+#source /usr/share/doc/fzf/examples/key-bindings.bash
+#source /usr/share/bash-completion/completions/fzf
 
 export FZF_DEFAULT_OPTS="--reverse --multi \
                          --preview='head {}' \
@@ -162,6 +164,7 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 export EDITOR=nvim
 export VISUAL=nvim
 
+export RESOURCES=$HOME/02-Resources
 #########################################################################
 # TTY
 #########################################################################
@@ -197,3 +200,35 @@ Projects () {
         break
 done
 }
+
+#############################################################################
+# UTILS
+#############################################################################
+#  ex - archive extractor
+#  usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="\[\e[01;30m\]\W \[\e[32m\]\$(parse_git_branch)\[\e[00m\]$ "

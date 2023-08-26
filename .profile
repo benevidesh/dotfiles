@@ -1,2 +1,5 @@
 export PATH="${PATH}:$HOME/.local/bin"
-export RESOURCES=$HOME/02-Resources
+export INBOX=$HOME/0I
+export RESOURCES=$HOME/2R
+
+/usr/bin/setxkbmap -option caps:swapescape

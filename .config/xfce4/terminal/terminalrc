@@ -1,12 +1,12 @@
 [Configuration]
-FontName=Liberation Mono 10
+FontName=Source Code Pro 10
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
 MiscBordersDefault=TRUE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
-MiscDefaultGeometry=70x17
+MiscDefaultGeometry=75x20
 MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
@@ -35,7 +35,14 @@ DropdownStatusIcon=FALSE
 ColorBackground=#ffffffffe8e8
 ColorForeground=#000000
 ColorPalette=rgb(0,0,0);rgb(173,79,79);rgb(70,135,71);rgb(143,119,52);rgb(38,139,210);rgb(136,138,202);rgb(106,167,168);rgb(243,243,211);rgb(135,135,129);rgb(255,221,221);rgb(235,255,235);rgb(237,238,165);rgb(38,139,210);rgb(161,238,237);rgb(255,255,235);rgb(150,209,151)
-BackgroundDarkness=0,960000
+BackgroundDarkness=0,970000
 ColorBoldIsBright=FALSE
-CellHeightScale=1,200000
+DropdownWidth=52
+DropdownHeight=58
+CellHeightScale=1,050000
+DropdownPositionVertical=46
+DropdownPosition=54
+ColorCursorUseDefault=FALSE
+ColorCursorForeground=#e0e01b1b2424
+ColorCursor=#e0e01b1b2424
 

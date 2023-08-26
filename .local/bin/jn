@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JRNL_DEST="/home/benevidesh/Resources/Triquetra/jrnl/"
+JRNL_DEST=$RESOURCES/Triquetra/jrnl
 file=$(date +"%F" -d "$*")
 
 desc_date=$(date +'%a, %d %b %Y' -d "$*")

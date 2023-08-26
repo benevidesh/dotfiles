@@ -16,8 +16,8 @@ set window-title-basename true
 # -                             APPEARENCE                              - #
 # ----------------------------------------------------------------------- #
 
-set default-bg "#fbfbfb"
-
+# set default-bg "#fbfbfb"
+set default-bg "#404040"
 ###############################################################################
 # RECOLOR
 ###############################################################################
@@ -29,11 +29,14 @@ set recolor-darkcolor "#292523" #yui_black03
 # set recolor-darkcolor "#c6c6c6" #GRAY
 
 # recoloring WHITE to
-set recolor-lightcolor "#FDF6E3" #solarized_light_bg
+set recolor-lightcolor "#FFFFE8" #solarized_light_bg
+# set recolor-lightcolor "#FDF6E3" #solarized_light_bg
 # set recolor-lightcolor "#262626" #BLACK
 
 ###############################################################################
 # WINDOW
 ###############################################################################
-set window-width 940
-set window-height 760
+# set window-width 940
+# set window-height 760
+set window-height 3000
+set window-width 3000
