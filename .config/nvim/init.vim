@@ -5,16 +5,29 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdcommenter'
     Plug 'ferrine/md-img-paste.vim'
     Plug 'lervag/vimtex'
-    Plug 'ixru/nvim-markdown'
-    Plug 'arzg/vim-plan9'
-    Plug 'junegunn/goyo.vim'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'folke/zen-mode.nvim'
+    Plug 'ixru/nvim-markdown' 
+    Plug 'lunacookies/vim-plan9'
 call plug#end()
 " }}}
 "
 " SETTINGS {{{
 filetype plugin on
+
+" leader
+let mapleader = " "
+
+" nerdcomment
+let g:NERDSpaceDelims=1
+
+" netrw
+let g:netrw_alto = 0
+let g:netrw_altv =0
+let g:netrw_preview   = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize   = 30
+
+"
 set expandtab
 set listchars=tab:›\ ,nbsp:␣,trail:•,precedes:«,extends:»
 set tabstop=4
@@ -22,11 +35,12 @@ set breakindent
 set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
 set fillchars=fold:-,foldclose:\ ,foldsep:\ 
+" set fillchars+=eob:\ 
 " set foldcolumn=2
 set foldopen-=block
 set formatoptions-=r
 " set guicursor=
-set hidden 
+set hidden
 set nohlsearch
 set ignorecase
 set incsearch
@@ -55,19 +69,10 @@ set undofile
 set wildignore+=*.aux
 set wrap
 
-" nerdcomment
-let g:NERDSpaceDelims=1
-
-" goyo
-function! s:goyo_enter()
-    " hi Folded guifg=gray guibg=none
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-
 " }}}
 "
 " MAPPINGS {{{
-let mapleader = " "
+
 
 nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
@@ -82,7 +87,7 @@ nnoremap <leader>ww :update<CR>
 nnoremap <silent> <leader>sw :set wrap!<cr>
 nnoremap <silent> <F6> :set<space>spell!<cr>
 nnoremap <silent> <F10> <Cmd>set number!<Bar>set relativenumber!<cr>
-nnoremap <silent> <F11> :Goyo<cr>
+nnoremap <silent> <leader>z :ZenMode<cr>
 nnoremap <silent> <leader>ev :split $MYVIMRC<cr>
 nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 nnoremap <silent> [b :bp<cr>
@@ -103,7 +108,7 @@ nnoremap Q gqip
 nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
 imap <silent><expr> <C-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-k>' 
-nnoremap <silent><leader>p :ex.<enter>
+nnoremap <silent><leader>p :Lexplore.<enter>
 " }}}
 "
 " ABREVIATIONS {{{
@@ -113,13 +118,7 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 " }}}
 "
 " COLOR {{{
-if exists('$TMUX')
-    set background=light
-endif
-
-set background=light
 colorscheme plan9
-
 " }}}
 "
 " AUTOCMDS {{{
@@ -129,27 +128,6 @@ au BufNewFile,BufRead ~/02-Resources/Triquetra/jrnl/* set ft=jrnl
 "
 " LUA {{{
 lua <<EOF
-require("luasnip.loaders.from_snipmate").lazy_load()
-require("zen-mode").setup({
-  window = {
-    backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-    -- height and width can be:
-    -- * an absolute number of cells when > 1
-    -- * a percentage of the width / height of the editor when <= 1
-    -- * a function that returns the width or the height
-    width = 80, -- width of the Zen window
-    height = .85, -- height of the Zen window
-    -- by default, no options are changed for the Zen window
-    -- uncomment any of the options below, or add other vim.wo options you want to apply
-    options = {
-      -- signcolumn = "no", -- disable signcolumn
-      -- number = false, -- disable number column
-      -- relativenumber = false, -- disable relative numbers
-      -- cursorline = false, -- disable cursorline
-      -- cursorcolumn = false, -- disable cursor column
-      -- foldcolumn = "0", -- disable fold column
-      -- list = false, -- disable whitespace characters
-    }
-    }})
+require("plugins")
 EOF
 " }}}
