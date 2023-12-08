@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#
+TODO_DIR=/home/benevidesh/3R/Triquetra/tsks
+
+# Your todo/done/report.txt locations
+TODO_FILE="$TODO_DIR/todo.txt"
+DONE_FILE="$TODO_DIR/done.txt"
+REPORT_FILE="$TODO_DIR/report.txt"
+
+mit=$(grep "(A)"  "$TODO_FILE")
+nextaction=$(todo.sh -p ls  | head -1 | sed 's/ 2023-[0-9][0-9]-[0-9][0-9]//g;s/ --.*//g')
+today=$(grep "(B)" $TODO_FILE | wc -l)
+tsks_completed=$(grep ^x /home/benevidesh/3R/Triquetra/tsks/done.txt | wc -l)
+
+if [[ $mit ]];
+then
+     echo "<txt><span foreground='black' bgcolor='#FCF55F'> $nextaction </span> 🗹 $tsks_completed ▢ $today</txt>"
+    # echo "$nextaction | 🗹 $tsks_completed ▢ $today"
+    # echo "<txt><s>$nextaction</s> | $tsks_completed tasks completed</txt>"
+ else
+     echo "<txt><span foreground='black' bgcolor='#FCF55F'> Plan next action </span> 🗹 $tsks_completed ▢ $today</txt></txt>"
+fi
