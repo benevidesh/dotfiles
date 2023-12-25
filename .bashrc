@@ -98,9 +98,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
+# alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -157,6 +157,9 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf --preview 'tree -C {} | head -200') &&
   cd "$dir"
 }
+
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
 #########################################################################
 # NVIM
 #########################################################################
@@ -166,28 +169,29 @@ export VISUAL=nvim
 
 export RESOURCES=$HOME/02-Resources
 #########################################################################
-# TTY
+# TTY COLORSCHEME (SOLARIZED)
 #########################################################################
-if [ "$TERM" = "linux" ]; then
-    echo -en "\e]PB657b83" # base00
-    echo -en "\e]PA586e75" # base01
-    echo -en "\e]P0073642" # base02
-    echo -en "\e]P62aa198" # cyan
-    echo -en "\e]P8002b36" # base03
-    echo -en "\e]P2859900" # green
-    echo -en "\e]P5d33682" # magenta
-    echo -en "\e]P1dc322f" # red
-    echo -en "\e]PC839496" # base0
-    echo -en "\e]PE93a1a1" # base1
-    echo -en "\e]P9cb4b16" # orange
-    echo -en "\e]P7eee8d5" # base2
-    echo -en "\e]P4268bd2" # blue
-    echo -en "\e]P3b58900" # yellow
-    echo -en "\e]PFfdf6e3" # base3
-    echo -en "\e]PD6c71c4" # violet
-    clear
-fi
-
+#if [ "$TERM" = "linux" ]; then
+#	printf %b '\e[40m' '\e[8]' # set default background to color 0 'dracula-bg'
+#	printf %b '\e[37m' '\e[8]' # set default foreground to color 7 'dracula-fg'
+#	printf %b '\e]P0282a36'    # redefine 'black'          as 'dracula-bg'
+#	printf %b '\e]P86272a4'    # redefine 'bright-black'   as 'dracula-comment'
+#	printf %b '\e]P1ff5555'    # redefine 'red'            as 'dracula-red'
+#	printf %b '\e]P9ff7777'    # redefine 'bright-red'     as '#ff7777'
+#	printf %b '\e]P250fa7b'    # redefine 'green'          as 'dracula-green'
+#	printf %b '\e]PA70fa9b'    # redefine 'bright-green'   as '#70fa9b'
+#	printf %b '\e]P3f1fa8c'    # redefine 'brown'          as 'dracula-yellow'
+#	printf %b '\e]PBffb86c'    # redefine 'bright-brown'   as 'dracula-orange'
+#	printf %b '\e]P4bd93f9'    # redefine 'blue'           as 'dracula-purple'
+#	printf %b '\e]PCcfa9ff'    # redefine 'bright-blue'    as '#cfa9ff'
+#	printf %b '\e]P5ff79c6'    # redefine 'magenta'        as 'dracula-pink'
+#	printf %b '\e]PDff88e8'    # redefine 'bright-magenta' as '#ff88e8'
+#	printf %b '\e]P68be9fd'    # redefine 'cyan'           as 'dracula-cyan'
+#	printf %b '\e]PE97e2ff'    # redefine 'bright-cyan'    as '#97e2ff'
+#	printf %b '\e]P7f8f8f2'    # redefine 'white'          as 'dracula-fg'
+#	printf %b '\e]PFffffff'    # redefine 'bright-white'   as '#ffffff'
+#	clear
+#fi
 Projects () {
     PS3="> "
     PROJECTS="$HOME/Projects"
@@ -231,4 +235,5 @@ ex ()
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-export PS1="\[\e[01;30m\]\W \[\e[32m\]\$(parse_git_branch)\[\e[00m\]$ "
+export PS1="\[\e[01;30m\]\W\[\e[32m\] \$(parse_git_branch)\[\e[00m\] "
+export LS_COLORS+=":di=01;30"
