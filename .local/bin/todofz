@@ -1,0 +1,53 @@
+#!/bin/bash
+# <hbenevides, 2023-12-25>
+# todofz: an opinionated script for organizing todo.txt files with fzf
+#+ using coreutils
+
+export TODO_FILE=${1:-todo.txt}
+DONE_FILE="$TODO_DIR/done.txt"
+
+function list_tasks () {
+    nl -n'rz' -w2 -s' ' ${TODO_FILE}  | sed 's/[[:space:]][[:digit:]]\{4\}-[[:digit:]]\{2\}-[[:digit:]]\{2\}//g' | sed '/[0-9]\+ x/d'
+}
+export -f list_tasks
+
+function list_tasks_by_priority () {
+    list_tasks $1 | sort -t' ' -k2.1,2.3
+}
+export -f list_tasks_by_priority
+
+
+function add_task (){
+    local time_stamp=$(date +'%Y-%m-%d')
+    echo "(N) ${time_stamp} $*" >> ${TODO_FILE}
+}
+export -f add_task
+
+function today (){
+    list_tasks_by_priority ${TODO_FILE} | grep '(A)\|(B)\|(N)' || list_tasks ${TODO_FILE}
+}
+export -f today
+
+function mark_task_as_done (){
+    task=$1
+    task_id=$(echo ${task} | cut -d' ' -f1)
+    local time_stamp=$(date +'%Y-%m-%d')
+    sed -i "${task_id}s/^/x /g" ${TODO_FILE}
+    sed -i "${task_id}s/\(^x (\?[A-Z]\?)\? \)/\1${time_stamp} /g" ${TODO_FILE}
+}
+export -f mark_task_as_done
+
+function rm_task (){
+    task=$1
+    task_id=$(echo ${task} | cut -d' ' -f1)
+    sed -i "${task_id}d" ${TODO_FILE}
+}
+export -f rm_task
+
+today | fzf --header-first --header="ctrl-a: add | ctrl-d: done | ctrl-r: remove " \
+--bind "ctrl-a:execute(add_task {q})+reload(list_tasks)+clear-query" \
+            --bind "ctrl-e:execute(${EDITOR} ${TODO_FILE})" \
+            --bind "ctrl-l:reload(list_tasks)" \
+            --bind "ctrl-t:reload(today)" \
+            --bind "ctrl-d:execute-silent(mark_task_as_done {})+reload(list_tasks_by_priority)" \
+            --bind "ctrl-r:execute-silent(rm_task {})+reload(list_tasks_by_priority ${TODO_FILE})" \
