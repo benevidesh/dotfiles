@@ -2,7 +2,7 @@
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor {{{
 fe() {
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --expect=enter,ctrl-r --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzf-tmux -u --query="$1" --expect=enter,ctrl-r --multi --select-1 --exit-0))
 
   key=${files[0]}
   selected=$(printf "%s\n" ${files[@]:1})

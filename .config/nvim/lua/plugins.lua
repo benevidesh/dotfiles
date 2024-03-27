@@ -1,3 +1,4 @@
+require("coq")
 require('Comment').setup()
 
 require('zen-mode').setup(

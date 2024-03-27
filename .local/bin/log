@@ -1,6 +1,8 @@
 #!/bin/bash
 
-stamp=$(date --rfc-3339=s)
-in_text=$(dmenu -p '📁  Log' < /dev/null)
+# stamp=$(date --rfc-3339=s)
+today=$(date +%F)
+hour=$(date '+%R')
+in_text=$(dmenu -p '📁  LOG ' < /dev/null)
 
-[[ -z ${in_text} ]] && exit 0 || echo $stamp $in_text
+[[ -z ${in_text} ]] && exit 0 || echo -e "- $in_text [${hour}]\n" >> "$JRNL/${today}.txt"

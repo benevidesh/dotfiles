@@ -6,10 +6,42 @@
 # TODO: change priority on the fly
 # TODO: list contexts
 # TODO: list projects
+# feature: preview show hidden metadata of task todofz
+# Keyboard shortcuts: <https://github.com/benrhughes/todotxt.net>
+# 
+#     O or Ctrl+O: open todo.txt file
+#     C or Ctrl+N: new todo.txt file
+#     N: new task
+#     J: next task
+#     K: prev task
+#     X: toggle task completion
+#     A: archive tasks
+#     D or Del or Backspace: delete task (with confirmation)
+#     U or F2: update task
+#     T: append text to selected tasks
+#     F: filter tasks (free-text, one filter condition per line)
+#     I: set priority
+#     0: clear filter
+#     1-9: apply numbered filter preset
+#     . or F5: reload tasks from file
+#     ?: show help
+#     Alt+Up: increase priority
+#     Alt+Down: decrease priority
+#     Alt+Left/Right: clear priority
+#     Ctrl+Alt+Up: increase due date by 1 day
+#     Ctrl+Alt+Down: decrease due date by 1 day
+#     Ctrl+Alt+Left/Right: remove due date
+#     Ctrl+Up: increase threshold date by 1 day
+#     Ctrl+Down: decrease threshold date by 1 day
+#     Ctrl+Left/Right: remove threshold date
+#     Ctrl+S: set threshold date
+#     Ctrl+Alt+P: add days to threshold date
+#     Ctrl+C: copy task to clipboard
+#     Ctrl+Shift+C: copy task to edit field
+#     Ctrl+Alt+M: hide/unhide windows
 
 export TODO_FILE=${1:-todo.txt}
 export EDITOR=nvim
-DONE_FILE="$TODO_DIR/done.txt"
 
 function list_tasks () {
 
@@ -32,7 +64,7 @@ export -f add_task
 function today (){
     export CURRENT=list_tasks
 
-    list_tasks_by_priority ${TODO_FILE} | grep '(A)\|(B)' || list_tasks ${TODO_FILE}
+    list_tasks_by_priority ${TODO_FILE} | grep '(A)\|(B)' || list_tasks_by_priority ${TODO_FILE}
 }
 export -f today
 
@@ -56,15 +88,18 @@ export -f rm_task
 function show_keybidings () {
 printf "%s\n" "
 
-==================
-todofz keybindings
-==================
+================================================
+              todofz keybindings
+================================================
 
 Ctrl-n      add new task
 Ctrl-o      open todo.txt file in default editor
 Ctrl-l      list all tasks
 Ctrl-t      list only tasks for today
-Ctrl-d      mark task as done" | less
+Ctrl-d      mark task as done
+
+==================================================
+" | less
 
 }
 export -f show_keybidings
@@ -84,11 +119,13 @@ function change_priority () {
 }
 export -f change_priority 
 
+
 export FZF_DEFAULT_OPTS="--reverse --multi \
             --color=bw \
             --header='F1: help' \
             --bind 'ctrl-n:execute(add_task {q})+reload(list_tasks)+clear-query'
             --bind 'ctrl-o:execute(${EDITOR} ${TODO_FILE})+reload(list_tasks)' \
+            --bind 'ctrl-e:execute(${EDITOR} ${TODO_FILE} +{1} -c \"normal zz\")+reload(list_tasks)' \
             --bind 'ctrl-l:reload(list_tasks)' \
             --bind 'ctrl-t:reload(today)' \
             --bind 'ctrl-d:execute-silent(mark_task_as_done {})+reload(list_tasks)' \
@@ -98,4 +135,4 @@ export FZF_DEFAULT_OPTS="--reverse --multi \
             --bind 'alt-3:execute-silent(change_priority {} C)+reload(list_tasks)' \
             --bind 'ctrl-r:execute-silent(rm_task {})+reload(list_tasks)'"
 
-today | fzf
+list_tasks_by_priority | fzf

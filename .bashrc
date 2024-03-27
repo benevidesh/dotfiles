@@ -1,3 +1,7 @@
+PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/"~"}"'
+
+eval "$(starship init bash)"
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -8,14 +12,15 @@ case $- in
       *) return;;
 esac
 
-#########################################################################
+#################################################################
 # READLINE
-#########################################################################
+#################################################################
 export INPUTRC="/home/benevidesh/.config/inputrc"
+export PATH="${PATH}:$HOME/.local/bin"
 
-#########################################################################
+#################################################################
 # HISTORY
-#########################################################################
+#################################################################
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -75,7 +80,7 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm*|rxvt*|st-*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
@@ -100,7 +105,7 @@ fi
 # some more ls aliases
 # alias ll='ls -alF'
 alias la='ls -A'
-alias ll='ls -CF'
+# alias ll='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -137,7 +142,7 @@ export FZF_DEFAULT_OPTS="--reverse --multi \
                          --preview-window=66%,top,hidden,wrap \
                          --color=bw \
                          --bind '?:toggle-preview'"
-                         
+
 
 # fuzzy open
 fo() {
@@ -208,6 +213,14 @@ done
 #############################################################################
 # UTILS
 #############################################################################
+# j -journal
+#
+function j () {
+    local dailyLogAddress=$(date +%F -d "$*")
+    local dailyLogLocation=$JRNL/$dailyLogAddress
+    $EDITOR $dailyLogLocation
+}
+
 #  ex - archive extractor
 #  usage: ex <file>
 ex ()
@@ -235,5 +248,11 @@ ex ()
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-export PS1="\[\e[01;30m\]\W\[\e[32m\] \$(parse_git_branch)\[\e[00m\] "
-export LS_COLORS+=":di=01;30"
+# export PS1="\[\e[01;35m\]\W\[\e[32m\] \$(parse_git_branch)\[\e[00m\] "
+export LS_COLORS+=":di=01;38"
+
+# if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    # exec tmux new-session -A -s ${USER} >/dev/null 2>&1
+# fi
+#
+# alias ls="lsd"

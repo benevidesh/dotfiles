@@ -1,13 +1,12 @@
 [Configuration]
-FontName=Source Code Pro 10
-MiscAlwaysShowTabs=FALSE
+FontName=Source Code Pro 10 weight=453
 MiscBell=FALSE
 MiscBellUrgent=FALSE
 MiscBordersDefault=TRUE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=75x20
-MiscInheritGeometry=FALSE
+MiscInheritGeometry=TRUE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
 MiscMouseWheelZoom=TRUE
@@ -32,9 +31,9 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TitleMode=TERMINAL_TITLE_REPLACE
 DropdownShowBorders=TRUE
 DropdownStatusIcon=FALSE
-ColorBackground=#ffffffffe8e8
-ColorForeground=#000000
-ColorPalette=rgb(0,0,0);rgb(173,79,79);rgb(70,135,71);rgb(143,119,52);rgb(38,139,210);rgb(136,138,202);rgb(106,167,168);rgb(243,243,211);rgb(135,135,129);rgb(255,221,221);rgb(235,255,235);rgb(237,238,165);rgb(38,139,210);rgb(161,238,237);rgb(255,255,235);rgb(150,209,151)
+ColorBackground=#F4F4F4
+ColorForeground=#3E3E3E
+ColorPalette=#3E3E3E;#970B16;#07962A;#F8EEC7;#003E8A;#E94691;#89D1EC;#FFFFFF;#666666;#DE0000;#87D5A2;#F1D007;#2E6CBA;#FFA29F;#1CFAFE;#FFFFFF
 BackgroundDarkness=0,970000
 ColorBoldIsBright=FALSE
 DropdownWidth=52
@@ -44,5 +43,5 @@ DropdownPositionVertical=46
 DropdownPosition=54
 ColorCursorUseDefault=FALSE
 ColorCursorForeground=#e0e01b1b2424
-ColorCursor=#e0e01b1b2424
+ColorCursor=#3E3E3E
 

@@ -1,16 +1,18 @@
+# alias today="todo.sh ls '(A)\|(B)'"
+alias t="todofz ~/3R/journal/tsks/todo.txt"
+# alias t="todo.sh -t -a"
+alias qn="nvim + /home/benevidesh/2R/Triquetra/nts/QuickNote.md"
 alias nv='nvim $HOME/.config/nvim'
 alias dyp='youtube-dl -xic -o "%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s"'
 alias ls='ls -1 --color=always'
 alias refresh='source ~/.bashrc'
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias t="task"
+# alias t="task"
 alias to="taskopen"
 alias ed="ed -v -p'§ '"
 alias bal="nvim $HOME/.bash_aliases"
 alias brc="nvim $HOME/.bashrc"
 alias ev="nvim $HOME/.config/nvim/init.vim"
-alias p="Projects"
-alias r="cd $HOME/Resources"
 alias x='exit'
 alias q='exit'
 alias c='clear'
@@ -23,6 +25,9 @@ alias trc="nvim /home/benevidesh/.config/tmux/tmux.conf"
 
 alias copy='xclip -selection clipboard'
 
+#######################################################################
+#                                GIT                                  #
+#######################################################################
 alias gst='git status '
 alias ga='git add '
 alias gc='git commit -m '
@@ -37,7 +42,5 @@ alias gl='git log'
 #######################################################################
 #                                MISC                                 #
 #######################################################################
-alias nt="nvim + ~/Resources/todo/master.todo.txt"
 alias nn="zn"
-#alias ls="lsd --extensionsort"
 alias ek="nvim $HOME/.config/sxhkd/sxhkdrc"

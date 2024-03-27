@@ -6,6 +6,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ronisbr/nano-theme.nvim'
     Plug 'folke/zen-mode.nvim'
     Plug 'freitass/todo.txt-vim'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" 9000+ Snippets
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 call plug#end()
 " }}}
 
@@ -19,7 +22,7 @@ let mapleader = " "
 " set foldcolumn=2
 " set guicursor=
 " set scrolloff=5
-"set noshowmode
+set noshowmode
 set breakindent
 set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
@@ -134,6 +137,7 @@ command! -nargs=1 NOTE :exe "split " . fnameescape("~/3R/journal/nts/inbox/<args
 " }}}
 
 " LUA {{{
+let g:coq_settings = { 'auto_start': 'shut-up' }
 lua <<EOF
 require('plugins')
 EOF

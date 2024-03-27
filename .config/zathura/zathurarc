@@ -9,15 +9,22 @@ set synctex true
 set guioptions n
 set adjust-open "width"
 
-set window-title-basename true
-#set window-title-page true
+# set window-title-basename true
+# set window-title-page true
 
-# ----------------------------------------------------------------------- #
-# -                             APPEARENCE                              - #
-# ----------------------------------------------------------------------- #
+set scroll-page-aware true
+
+set selection-clipboard clipboard
+###############################################################################
+# APPEARENCE
+###############################################################################
 
 # set default-bg "#fbfbfb"
-set default-bg "#404040"
+# set default-bg "#404040"
+# set default-bg "#FFFFE8"
+# set default-bg "#eceff4"
+set default-bg "#ffffff"
+
 ###############################################################################
 # RECOLOR
 ###############################################################################
@@ -25,18 +32,23 @@ set default-bg "#404040"
 set recolor false
 
 # recoloring BLACK to
-set recolor-darkcolor "#292523" #yui_black03
+set recolor-darkcolor "#000000" #yui_black03 
+# set recolor-darkcolor "#ffffff"
+# "#000000"
 # set recolor-darkcolor "#c6c6c6" #GRAY
 
 # recoloring WHITE to
-set recolor-lightcolor "#FFFFE8" #solarized_light_bg
+# set recolor-lightcolor "#30363D"
+set recolor-lightcolor "#FFFFEB"
+# "#2E3440"
+# "#FFFFE8" #solarized_light_bg
 # set recolor-lightcolor "#FDF6E3" #solarized_light_bg
 # set recolor-lightcolor "#262626" #BLACK
 
 ###############################################################################
 # WINDOW
 ###############################################################################
-# set window-width 940
+set window-width 940
 # set window-height 760
-set window-height 3000
-set window-width 3000
+# set window-height 3000
+# set window-width 3000

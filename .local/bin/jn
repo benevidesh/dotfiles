@@ -1,23 +1,27 @@
 #!/bin/bash
 
-JRNL_DEST=$RESOURCES/Triquetra/jrnl
-file=$(date +"%F" -d "$*")
+JRNL_FOLDER=${JRNL}
 
-desc_date=$(date +'%a, %d %b %Y' -d "$*")
+JRNL_DATE=$(date +'%F' -d "$*")
+JRNL_TITLE=$(date +'%A, %d de %B de %Y' -d "${JRNL_DATE}")
+JRNL_FILENAME="${JRNL_DATE}.txt"
 
+TEMP_JRNL_FOLDER=$(mktemp -d "${TMPDIR:-/tmp/}$(basename $0).XXXXXXXXXXXX")
+TEMP_NOTE_JRNL="$TEMP_JRNL_FOLDER/$JRNL_FILENAME"
 
-file_header=$(cat << EOF
+JRNL_HEADER=$(cat << EOF
 ---
-date: ${desc_date}
+title: ${JRNL_TITLE}
 event:
 ---
 EOF
 )
 
-if [ -f $JRNL_DEST/$file ]; then
-    nvim + $JRNL_DEST/$file
-else
-    printf "%s\n" "${file_header}" > "${JRNL_DEST}/${file}"
-    nvim + $JRNL_DEST/$file
-fi
+JRNL_PAGE="$JRNL_FOLDER/$JRNL_FILENAME"
 
+if [[  -f $JRNL_PAGE ]]; then
+    nvim + "$JRNL_PAGE"
+else
+    echo "$JRNL_HEADER" > "$TEMP_NOTE_JRNL"
+    nvim "$JRNL_PAGE" -c "silent 0read $TEMP_NOTE_JRNL" + 2>/dev/null
+fi

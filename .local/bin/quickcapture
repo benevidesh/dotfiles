@@ -1,11 +1,11 @@
 #!/bin/bash
 # QN_INBOX_FILE="$HOME/Resources/journal/notes/QuickNote.txt"
-DM_PROMPT="QuickNote 📝"
+DM_PROMPT="🚀 QuickNote >>"
 DM_OPTS='-i'
 
 ADD_TODO=$(dmenu $DM_OPTS -p "$DM_PROMPT" < /dev/null)
 
 if [[ ! -z "$ADD_TODO" ]]; then
     # echo "---" >> $QN_INBOX_FILE
-    echo $ADD_TODO @inbox | jrnl
+    echo "* $ADD_TODO" >> ~/3R/journal/nts/0I/QuickNote.md
 fi
