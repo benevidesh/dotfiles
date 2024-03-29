@@ -9,6 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 " 9000+ Snippets
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'Mofiqul/dracula.nvim'
 call plug#end()
 " }}}
 
@@ -124,7 +125,7 @@ iabbrev <silent> tl <C-r>=strftime('[%Y-%m-%d %H:%M]')<cr>
 
 " COLOR {{{
 set background=light
-colorscheme nano-theme
+colorscheme dracula-soft
 " }}}
 
 " CMDS {{{

@@ -249,7 +249,7 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 # export PS1="\[\e[01;35m\]\W\[\e[32m\] \$(parse_git_branch)\[\e[00m\] "
-export LS_COLORS+=":di=01;38"
+# export LS_COLORS+=":di=01;38"
 
 # if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
     # exec tmux new-session -A -s ${USER} >/dev/null 2>&1
