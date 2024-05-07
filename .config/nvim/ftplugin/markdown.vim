@@ -10,3 +10,6 @@ set breakindent
 set breakindentopt=shift:0
 
 set conceallevel=2
+
+
+set breakindentopt+=list:2
