@@ -4,7 +4,7 @@ JRNL_FOLDER=${JRNL}
 
 JRNL_DATE=$(date +'%F' -d "$*")
 JRNL_TITLE=$(date +'%A, %d de %B de %Y' -d "${JRNL_DATE}")
-JRNL_FILENAME="${JRNL_DATE}.txt"
+JRNL_FILENAME="${JRNL_DATE}.md"
 
 TEMP_JRNL_FOLDER=$(mktemp -d "${TMPDIR:-/tmp/}$(basename $0).XXXXXXXXXXXX")
 TEMP_NOTE_JRNL="$TEMP_JRNL_FOLDER/$JRNL_FILENAME"
